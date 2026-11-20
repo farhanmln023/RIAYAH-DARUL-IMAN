@@ -3,12 +3,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Sistem Informasi Ri'ayah — Keamanan Pondok Pesantren</title>
+  <title>Sistem Informasi Ri'ayah — Pondok Pesantren Darul Iman</title>
   <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
-  <!-- Font Inter & Amiri (untuk sentuhan kaligrafi/islami jika perlu) -->
+  <!-- Google Fonts: Inter & Amiri -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Amiri:wght@700&display=swap" rel="stylesheet">
-  <!-- Font Awesome untuk Ikon -->
+  <!-- Font Awesome 6.5.1 -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   
   <script>
@@ -43,7 +43,7 @@
     }
   </script>
   <style>
-    /* Pola latar belakang halus bernuansa islami dalam warna Maroon */
+    /* Pola latar belakang islami bernuansa Maroon */
     .islamic-pattern {
       background-color: #5a0a14;
       background-image: radial-gradient(rgba(251, 191, 36, 0.14) 1.5px, transparent 1.5px), radial-gradient(rgba(255, 255, 255, 0.06) 1.5px, #5a0a14 1.5px);
@@ -69,7 +69,7 @@
 </head>
 <body class="bg-slate-50 text-slate-800 font-sans antialiased selection:bg-maroon-200 selection:text-maroon-900">
 
-  <!-- Toast Notification Container (Pengganti alert) -->
+  <!-- Toast Notification Container -->
   <div id="toast-container" class="fixed bottom-5 right-5 z-50 flex flex-col gap-2 pointer-events-none"></div>
 
   <!-- Layout Utama -->
@@ -79,12 +79,12 @@
     <header class="md:hidden islamic-pattern text-white px-4 py-3.5 flex items-center justify-between shadow-md sticky top-0 z-30">
       <div class="flex items-center gap-3">
         <!-- LOGO PONDOK (Header Mobile) -->
-        <div class="logo-pondok-container w-10 h-10 rounded-xl bg-white p-1 shadow-xs flex items-center justify-center shrink-0 overflow-hidden">
-          <img src="dmn.jpeg" alt="Logo Pondok" class="w-full h-full object-contain rounded-full bg-white p-0.5">
+        <div class="logo-pondok-container w-10 h-10 rounded-full bg-white p-0.5 shadow-xs flex items-center justify-center shrink-0 overflow-hidden">
+          <img src="dmn.jpeg" alt="Logo Pondok" class="w-full h-full object-contain rounded-full bg-white p-0.5" onerror="this.src='https://placehold.co/100x100/800000/ffffff?text=RI'">
         </div>
         <div>
           <h1 class="font-bold text-base leading-tight tracking-wide">RI'AYAH PONDOK</h1>
-          <p class="text-[11px] text-rose-200">Bagian Keamanan & Ketertiban</p>
+          <p class="text-[11px] text-rose-200">PP. Darul Iman</p>
         </div>
       </div>
       <button id="mobile-menu-btn" onclick="toggleMobileMenu()" class="p-2 rounded-lg bg-maroon-800/80 hover:bg-maroon-700 text-white focus:outline-none">
@@ -101,8 +101,8 @@
       <div class="p-6 border-b border-maroon-800/80 flex items-center justify-between">
         <div class="flex items-center gap-3.5">
           <!-- LOGO PONDOK (Sidebar Utama) -->
-          <div class="logo-pondok-container w-12 h-12 rounded-2xl bg-white p-1.5 flex items-center justify-center shadow-lg shadow-black/25 shrink-0 overflow-hidden">
-            <img src="dmn.jpeg" alt="Logo Pondok" class="w-full h-full object-contain rounded-full bg-white p-0.5">
+          <div class="logo-pondok-container w-12 h-12 rounded-full bg-white p-0.5 flex items-center justify-center shadow-lg shadow-black/25 shrink-0 overflow-hidden">
+            <img src="dmn.jpeg" alt="Logo Pondok" class="w-full h-full object-contain rounded-full bg-white p-0.5" onerror="this.src='https://placehold.co/100x100/800000/ffffff?text=RI'">
           </div>
           <div>
             <span class="text-xs font-semibold uppercase tracking-widest text-amber-400 block">Divisi Keamanan</span>
@@ -252,37 +252,26 @@
               <div class="space-y-4">
                 <div class="flex items-start gap-4">
                   <!-- LOGO PONDOK (Kartu Tentang Pondok) -->
-                  <div class="logo-pondok-container w-16 h-16 rounded-2xl bg-white border border-slate-200 p-1.5 shadow-xs flex items-center justify-center shrink-0 overflow-hidden">
-                    <svg viewBox="0 0 200 200" class="w-full h-full" xmlns="http://www.w3.org/2000/svg">
-                      <g fill="#8b181b">
-                        <polygon points="100,10 103.5,20.5 114.5,20.5 105.5,27 109,37.5 100,31 91,37.5 94.5,27 85.5,20.5 96.5,20.5"/>
-                        <polygon points="100,10 103.5,20.5 114.5,20.5 105.5,27 109,37.5 100,31 91,37.5 94.5,27 85.5,20.5 96.5,20.5" transform="rotate(36 100 100)"/>
-                        <polygon points="100,10 103.5,20.5 114.5,20.5 105.5,27 109,37.5 100,31 91,37.5 94.5,27 85.5,20.5 96.5,20.5" transform="rotate(72 100 100)"/>
-                        <polygon points="100,10 103.5,20.5 114.5,20.5 105.5,27 109,37.5 100,31 91,37.5 94.5,27 85.5,20.5 96.5,20.5" transform="rotate(108 100 100)"/>
-                        <polygon points="100,10 103.5,20.5 114.5,20.5 105.5,27 109,37.5 100,31 91,37.5 94.5,27 85.5,20.5 96.5,20.5" transform="rotate(144 100 100)"/>
-                        <polygon points="100,10 103.5,20.5 114.5,20.5 105.5,27 109,37.5 100,31 91,37.5 94.5,27 85.5,20.5 96.5,20.5" transform="rotate(216 100 100)"/>
-                        <polygon points="100,10 103.5,20.5 114.5,20.5 105.5,27 109,37.5 100,31 91,37.5 94.5,27 85.5,20.5 96.5,20.5" transform="rotate(252 100 100)"/>
-                        <polygon points="100,10 103.5,20.5 114.5,20.5 105.5,27 109,37.5 100,31 91,37.5 94.5,27 85.5,20.5 96.5,20.5" transform="rotate(288 100 100)"/>
-                        <polygon points="100,10 103.5,20.5 114.5,20.5 105.5,27 109,37.5 100,31 91,37.5 94.5,27 85.5,20.5 96.5,20.5" transform="rotate(324 100 100)"/>
-                      </g>
-                      <circle cx="100" cy="103" r="56" fill="#8b181b"/>
-                      <g fill="#ffffff">
-                        <polygon points="100,56 111,67 100,78 89,67"/>
-                        <polygon points="84,72 95,83 84,94 73,83"/>
-                        <polygon points="116,72 127,83 116,94 105,83"/>
-                        <path d="M 88,157 L 88,105 C 88,97 73,94 52,97 C 68,103 74,113 74,132 L 74,152 Z"/>
-                        <path d="M 112,157 L 112,105 C 112,97 127,94 148,97 C 132,103 126,113 126,132 L 126,152 Z"/>
-                      </g>
-                    </svg>
+                  <div class="logo-pondok-container w-16 h-16 rounded-full bg-white border border-slate-200 p-0.5 shadow-xs flex items-center justify-center shrink-0 overflow-hidden">
+                    <img src="dmn.jpeg" alt="Logo Pondok" class="w-full h-full object-contain rounded-full bg-white p-0.5" onerror="this.src='https://placehold.co/100x100/800000/ffffff?text=RI'">
                   </div>
                   <div>
                     <span class="text-xs font-semibold uppercase tracking-wider text-maroon-700 bg-maroon-50 px-2.5 py-1 rounded-md">Profil Lembaga</span>
-                    <h4 id="pondok-nama" class="text-xl font-bold text-slate-900 mt-2">Pondok Pesantren Al-Hikmah</h4>
+                    <h4 id="pondok-nama" class="text-xl font-bold text-slate-900 mt-2">Pondok Pesantren Darul Iman</h4>
                     <p id="pondok-alamat" class="text-xs text-slate-500 flex items-center gap-1.5 mt-1">
                       <i class="fa-solid fa-location-dot text-maroon-600"></i>
-                      <span>Jl. Raya Pesantren No. 45, Kec. Cadasari, Pandeglang</span>
+                      <span>Jl. Raya Pesantren Darul Iman, Pandeglang, Banten</span>
                     </p>
                   </div>
+                </div>
+
+                <p id="pondok-deskripsi" class="text-sm text-slate-600 leading-relaxed">
+                  Lembaga pendidikan Islam terpadu yang membina santri agar berakhlakul karimah, disiplin, mandiri, serta berpegang teguh pada nilai-nilai keislaman.
+                </p>
+
+                <div class="p-3.5 rounded-xl bg-amber-50/80 border border-amber-200/70 text-xs text-amber-900 flex items-start gap-2.5">
+                  <i class="fa-solid fa-quote-left text-amber-500 mt-0.5"></i>
+                  <span id="pondok-motto" class="italic font-medium">Disiplin adalah cermin akhlak santri dan kunci keberhasilan menuntut ilmu.</span>
                 </div>
               </div>
 
@@ -317,7 +306,6 @@
             </div>
 
             <div class="p-6 flex-1">
-              <!-- Bagan Hierarki Visual Sederhana -->
               <div id="struktur-list" class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <!-- Diisi via JavaScript -->
               </div>
@@ -468,7 +456,7 @@
   <!-- MODAL 1: TAMBAH / EDIT PELANGGARAN         -->
   <!-- ========================================== -->
   <div id="modal-pelanggaran" class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-slate-900/60 backdrop-blur-xs">
-    <div class="bg-white rounded-2xl shadow-2xl w-full max-w-lg overflow-hidden animate-fade-in">
+    <div class="bg-white rounded-2xl shadow-2xl w-full max-w-lg overflow-hidden">
       <div class="islamic-pattern px-6 py-4 text-white flex items-center justify-between">
         <h3 id="modal-pelanggaran-title" class="font-bold text-lg">Tambah Data Pelanggaran</h3>
         <button onclick="closeModal('modal-pelanggaran')" class="text-rose-200 hover:text-white p-1">
@@ -550,7 +538,7 @@
 
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div>
-            <label class="block text-xs font-semibold text-slate-700 mb-1.5">Tgl & Waktu Keluar <span class="text-red-500">*</span></label>
+            <label class="block text-xs font-semibold text-slate-700 mb-1.5">Hari / Tgl / Waktu Keluar <span class="text-red-500">*</span></label>
             <input type="datetime-local" id="izin-keluar" required class="w-full px-3.5 py-2.5 text-sm border border-slate-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-maroon-500/30 focus:border-maroon-600">
           </div>
           <div>
@@ -596,10 +584,10 @@
         <!-- Upload / Ganti Logo Pondok -->
         <div class="p-3.5 rounded-xl bg-slate-50 border border-slate-200 flex items-center justify-between gap-3">
           <div class="flex items-center gap-3">
-            <div id="preview-logo-modal" class="w-12 h-12 rounded-xl bg-white border border-slate-200 p-1 flex items-center justify-center overflow-hidden shrink-0"></div>
+            <div id="preview-logo-modal" class="w-12 h-12 rounded-full bg-white border border-slate-200 p-0.5 flex items-center justify-center overflow-hidden shrink-0"></div>
             <div>
               <span class="block text-xs font-bold text-slate-800">Logo Pondok / Lembaga</span>
-              <span class="block text-[11px] text-slate-500">Unggah file gambar (JPG/PNG) dari HP/PC</span>
+              <span class="block text-[11px] text-slate-500">Default: dmn.jpeg (atau unggah gambar baru)</span>
             </div>
           </div>
           <div class="flex items-center gap-1.5">
@@ -607,7 +595,7 @@
               <i class="fa-solid fa-upload mr-1"></i> Pilih File
               <input type="file" id="edit-pondok-logo-file" accept="image/*" onchange="handleLogoUpload(event)" class="hidden">
             </label>
-            <button type="button" onclick="resetDefaultLogo()" title="Gunakan Logo Bawaan" class="px-2.5 py-1.5 bg-slate-200 hover:bg-slate-300 text-slate-700 text-xs font-semibold rounded-lg transition">
+            <button type="button" onclick="resetDefaultLogo()" title="Gunakan dmn.jpeg" class="px-2.5 py-1.5 bg-slate-200 hover:bg-slate-300 text-slate-700 text-xs font-semibold rounded-lg transition">
               Reset
             </button>
           </div>
@@ -717,50 +705,76 @@
 
   <script>
     // ==========================================
-    // 1. DATA DEFAULT & STATE APLIKASI
+    // 1. HELPER TANGGAL RELATIF UNTUK DATA CONTOH
+    // ==========================================
+    function getRelativeDate(daysOffset) {
+      const d = new Date();
+      d.setDate(d.getDate() + daysOffset);
+      return d.toISOString().split('T')[0];
+    }
+
+    function getRelativeDateTime(hoursOffset) {
+      const d = new Date();
+      d.setHours(d.getHours() + hoursOffset);
+      const pad = n => String(n).padStart(2, '0');
+      return `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}T${pad(d.getHours())}:${pad(d.getMinutes())}`;
+    }
+
+    // ==========================================
+    // 2. DATA DEFAULT & KONFIGURASI STORAGE
     // ==========================================
     const STORAGE_KEYS = {
-      PONDOK: 'riayah_pondok_v1',
-      STRUKTUR: 'riayah_struktur_v1',
-      PELANGGARAN: 'riayah_pelanggaran_v1',
-      PERIZINAN: 'riayah_perizinan_v1'
+      PONDOK: 'riayah_darul_iman_pondok_v1',
+      STRUKTUR: 'riayah_darul_iman_struktur_v1',
+      PELANGGARAN: 'riayah_darul_iman_pelanggaran_v1',
+      PERIZINAN: 'riayah_darul_iman_perizinan_v1'
     };
 
+    const DEFAULT_LOGO_HTML = "<img src='dmn.jpeg' alt='Logo Pondok' class='w-full h-full object-contain rounded-full bg-white p-0.5' onerror=\"this.src='https://placehold.co/100x100/800000/ffffff?text=RI'\">";
+
     const defaultPondok = {
-      nama: "Pondok Pesantren Modern Al-Hikmah",
-      alamat: "Jl. Raya Pesantren No. 45, Kec. Cadasari, Kab. Pandeglang, Banten",
-      deskripsi: "Lembaga pendidikan Islam terpadu yang memadukan kurikulum salafiyah (kitab kuning) dan pendidikan modern untuk mencetak generasi berakhlakul karimah, disiplin, dan mandiri.",
-      motto: "Al-Muhafazhah 'alal Qadimish Shalih wal Akhdzu bil Jadidil Ashlah — Disiplin adalah cermin akhlak santri.",
+      nama: "Pondok Pesantren Darul Iman",
+      alamat: "Jl. Raya Pesantren Darul Iman, Pandeglang, Banten",
+      deskripsi: "Lembaga pendidikan Islam terpadu yang membina santri agar berakhlakul karimah, disiplin, mandiri, serta berpegang teguh pada nilai-nilai keislaman dan keilmuan.",
+      motto: "Disiplin adalah cermin akhlak santri dan kunci keberhasilan menuntut ilmu.",
       pengasuh: "KH. Ahmad Fauzi, Lc., M.Ag.",
       kontak: "0812-3456-7890 (Pos Ri'ayah)",
       logoCustom: ""
     };
 
-    const DEFAULT_LOGO_SVG = `
-      <svg viewBox="0 0 200 200" class="w-full h-full" xmlns="http://www.w3.org/2000/svg">
-        <g fill="#8b181b">
-          <polygon points="100,10 103.5,20.5 114.5,20.5 105.5,27 109,37.5 100,31 91,37.5 94.5,27 85.5,20.5 96.5,20.5"/>
-          <polygon points="100,10 103.5,20.5 114.5,20.5 105.5,27 109,37.5 100,31 91,37.5 94.5,27 85.5,20.5 96.5,20.5" transform="rotate(36 100 100)"/>
-          <polygon points="100,10 103.5,20.5 114.5,20.5 105.5,27 109,37.5 100,31 91,37.5 94.5,27 85.5,20.5 96.5,20.5" transform="rotate(72 100 100)"/>
-          <polygon points="100,10 103.5,20.5 114.5,20.5 105.5,27 109,37.5 100,31 91,37.5 94.5,27 85.5,20.5 96.5,20.5" transform="rotate(108 100 100)"/>
-          <polygon points="100,10 103.5,20.5 114.5,20.5 105.5,27 109,37.5 100,31 91,37.5 94.5,27 85.5,20.5 96.5,20.5" transform="rotate(144 100 100)"/>
-          <polygon points="100,10 103.5,20.5 114.5,20.5 105.5,27 109,37.5 100,31 91,37.5 94.5,27 85.5,20.5 96.5,20.5" transform="rotate(216 100 100)"/>
-          <polygon points="100,10 103.5,20.5 114.5,20.5 105.5,27 109,37.5 100,31 91,37.5 94.5,27 85.5,20.5 96.5,20.5" transform="rotate(252 100 100)"/>
-          <polygon points="100,10 103.5,20.5 114.5,20.5 105.5,27 109,37.5 100,31 91,37.5 94.5,27 85.5,20.5 96.5,20.5" transform="rotate(288 100 100)"/>
-          <polygon points="100,10 103.5,20.5 114.5,20.5 105.5,27 109,37.5 100,31 91,37.5 94.5,27 85.5,20.5 96.5,20.5" transform="rotate(324 100 100)"/>
-        </g>
-        <circle cx="100" cy="103" r="56" fill="#8b181b"/>
-        <g fill="#ffffff">
-          <polygon points="100,56 111,67 100,78 89,67"/>
-          <polygon points="84,72 95,83 84,94 73,83"/>
-          <polygon points="116,72 127,83 116,94 105,83"/>
-          <path d="M 88,157 L 88,105 C 88,97 73,94 52,97 C 68,103 74,113 74,132 L 74,152 Z"/>
-          <path d="M 112,157 L 112,105 C 112,97 127,94 148,97 C 132,103 126,113 126,132 L 126,152 Z"/>
-        </g>
-      </svg>
-    `;
+    const defaultStruktur = [
+      {
+        id: 'str-1',
+        jabatan: 'Ketua Ri\'ayah (Keamanan)',
+        nama: 'Ust. Muhammad Ridwan',
+        tugas: 'Penanggung jawab utama ketertiban, keamanan lingkungan, dan kedisiplinan santri.'
+      },
+      {
+        id: 'str-2',
+        jabatan: 'Wakil Ketua Ri\'ayah',
+        nama: 'Ust. Abdul Aziz Al-Hafidz',
+        tugas: 'Koordinator piket harian, patroli malam, dan pembinaan santri.'
+      },
+      {
+        id: 'str-3',
+        jabatan: 'Sekretaris & Administrasi',
+        nama: 'Ust. Fajar Shodiq',
+        tugas: 'Pencatatan arsip pelanggaran, rekap takzir, dan pelaporan bulanan.'
+      },
+      {
+        id: 'str-4',
+        jabatan: 'Koordinator Perizinan',
+        nama: 'Ust. Hasan Basri',
+        tugas: 'Verifikasi surat izin keluar pondok dan pemantauan waktu kembali santri.'
+      }
+    ];
 
-    let tempLogoDataUrl = "";
+    const defaultPelanggaran = [
+      {
+        id: 'pel-1',
+        tanggal: getRelativeDate(0),
+        nama: 'Fauzan Al-Ghifari',
+        kelas: '2 SMP',
         jenis: 'Ringan',
         sanksi: 'Membersihkan serambi masjid & hafalan 15 mufrodat',
         keterangan: 'Terlambat mengikuti shalat Subuh berjamaah di masjid tanpa uzur.'
@@ -780,7 +794,7 @@
         nama: 'Dimas Pratama',
         kelas: '3 SMP',
         jenis: 'Berat',
-        sanksi: 'Pemanggilan wali santri, surat peringatan (SP-1), dan gundul',
+        sanksi: 'Pemanggilan wali santri, surat peringatan (SP-1), dan takzir khusus',
         keterangan: 'Keluar area pondok tanpa izin resmi dari bagian perizinan Ri\'ayah.'
       }
     ];
@@ -802,7 +816,7 @@
         waktuKeluar: getRelativeDateTime(-6),
         batasKembali: getRelativeDateTime(-1),
         tujuan: 'Menghadiri acara pernikahan kakak kandung',
-        status: 'Sedang Keluar' // Akan otomatis terdeteksi "Terlambat" karena batasKembali sudah lewat
+        status: 'Sedang Keluar'
       },
       {
         id: 'izin-3',
@@ -815,7 +829,8 @@
       }
     ];
 
-    // State in-memory
+    let tempLogoDataUrl = "";
+
     let state = {
       pondok: {},
       struktur: [],
@@ -826,68 +841,87 @@
     };
 
     // ==========================================
-    // 2. INISIALISASI & PENYIMPANAN LOKAL
+    // 3. INISIALISASI & PENYIMPANAN LOKAL
     // ==========================================
     function loadData() {
-      const savedPondok = localStorage.getItem(STORAGE_KEYS.PONDOK);
-      const savedStruktur = localStorage.getItem(STORAGE_KEYS.STRUKTUR);
-      const savedPelanggaran = localStorage.getItem(STORAGE_KEYS.PELANGGARAN);
-      const savedPerizinan = localStorage.getItem(STORAGE_KEYS.PERIZINAN);
+      try {
+        const savedPondok = localStorage.getItem(STORAGE_KEYS.PONDOK);
+        const savedStruktur = localStorage.getItem(STORAGE_KEYS.STRUKTUR);
+        const savedPelanggaran = localStorage.getItem(STORAGE_KEYS.PELANGGARAN);
+        const savedPerizinan = localStorage.getItem(STORAGE_KEYS.PERIZINAN);
 
-      state.pondok = savedPondok ? JSON.parse(savedPondok) : { ...defaultPondok };
-      state.struktur = savedStruktur ? JSON.parse(savedStruktur) : [...defaultStruktur];
-      state.pelanggaran = savedPelanggaran ? JSON.parse(savedPelanggaran) : [...defaultPelanggaran];
-      state.perizinan = savedPerizinan ? JSON.parse(savedPerizinan) : [...defaultPerizinan];
+        state.pondok = savedPondok ? JSON.parse(savedPondok) : { ...defaultPondok };
+        state.struktur = savedStruktur ? JSON.parse(savedStruktur) : [...defaultStruktur];
+        state.pelanggaran = savedPelanggaran ? JSON.parse(savedPelanggaran) : [...defaultPelanggaran];
+        state.perizinan = savedPerizinan ? JSON.parse(savedPerizinan) : [...defaultPerizinan];
 
-      if (!savedPondok) saveToStorage();
+        if (!savedPondok) saveToStorage();
+      } catch (err) {
+        console.error('Gagal memuat localStorage:', err);
+        state.pondok = { ...defaultPondok };
+        state.struktur = [...defaultStruktur];
+        state.pelanggaran = [...defaultPelanggaran];
+        state.perizinan = [...defaultPerizinan];
+      }
     }
 
     function saveToStorage() {
-      localStorage.setItem(STORAGE_KEYS.PONDOK, JSON.stringify(state.pondok));
-      localStorage.setItem(STORAGE_KEYS.STRUKTUR, JSON.stringify(state.struktur));
-      localStorage.setItem(STORAGE_KEYS.PELANGGARAN, JSON.stringify(state.pelanggaran));
-      localStorage.setItem(STORAGE_KEYS.PERIZINAN, JSON.stringify(state.perizinan));
+      try {
+        localStorage.setItem(STORAGE_KEYS.PONDOK, JSON.stringify(state.pondok));
+        localStorage.setItem(STORAGE_KEYS.STRUKTUR, JSON.stringify(state.struktur));
+        localStorage.setItem(STORAGE_KEYS.PELANGGARAN, JSON.stringify(state.pelanggaran));
+        localStorage.setItem(STORAGE_KEYS.PERIZINAN, JSON.stringify(state.perizinan));
+      } catch (err) {
+        console.error('Gagal menyimpan ke localStorage:', err);
+        showToast('Peringatan: Penyimpanan browser penuh.', 'info');
+      }
       updateAllUI();
+    }
+
+    function confirmResetData() {
+      state.pondok = { ...defaultPondok };
+      state.struktur = [...defaultStruktur];
+      state.pelanggaran = [...defaultPelanggaran];
+      state.perizinan = [...defaultPerizinan];
+      saveToStorage();
+      showToast('Data berhasil dikembalikan ke pengaturan awal.', 'success');
     }
 
     function openResetModal() {
       showConfirm(
         'Reset Data ke Awal?',
         'Semua data yang Anda input akan dikembalikan ke data contoh awal. Lanjutkan?',
-        () => {
-          state.pondok = { ...defaultPondok };
-          state.struktur = [...defaultStruktur];
-          state.pelanggaran = [...defaultPelanggaran];
-          state.perizinan = [...defaultPerizinan];
-          saveToStorage();
-          showToast('Data berhasil dikembalikan ke pengaturan awal.', 'success');
-        }
+        confirmResetData
       );
     }
 
     // ==========================================
-    // 3. NAVIGASI & FORMATTER TANGGAL INDONESIA
+    // 4. NAVIGASI & FORMATTER TANGGAL INDONESIA
     // ==========================================
     function switchTab(tabName) {
-      // Sembunyikan semua view
       ['dashboard', 'pelanggaran', 'perizinan'].forEach(t => {
-        document.getElementById(`view-${t}`).classList.add('hidden');
+        const viewEl = document.getElementById(`view-${t}`);
+        if (viewEl) viewEl.classList.add('hidden');
         const navBtn = document.getElementById(`nav-${t}`);
-        navBtn.className = 'nav-item w-full flex items-center justify-between px-4 py-3.5 rounded-xl text-left font-medium text-rose-100 hover:bg-maroon-800/50 hover:text-white transition-all';
-        const icon = navBtn.querySelector('i');
-        if (icon) icon.classList.replace('text-amber-400', 'text-rose-200');
+        if (navBtn) {
+          navBtn.className = 'nav-item w-full flex items-center justify-between px-4 py-3.5 rounded-xl text-left font-medium text-rose-100 hover:bg-maroon-800/50 hover:text-white transition-all';
+          const icon = navBtn.querySelector('i');
+          if (icon) icon.classList.replace('text-amber-400', 'text-rose-200');
+        }
       });
 
-      // Tampilkan view aktif
-      document.getElementById(`view-${tabName}`).classList.remove('hidden');
-      const activeBtn = document.getElementById(`nav-${tabName}`);
-      activeBtn.className = 'nav-item w-full flex items-center justify-between px-4 py-3.5 rounded-xl text-left font-medium transition-all bg-maroon-800/90 text-white border border-amber-400/30 shadow-sm';
-      const activeIcon = activeBtn.querySelector('i');
-      if (activeIcon) activeIcon.classList.replace('text-rose-200', 'text-amber-400');
+      const targetView = document.getElementById(`view-${tabName}`);
+      if (targetView) targetView.classList.remove('hidden');
 
-      // Tutup sidebar di mobile jika terbuka
+      const activeBtn = document.getElementById(`nav-${tabName}`);
+      if (activeBtn) {
+        activeBtn.className = 'nav-item w-full flex items-center justify-between px-4 py-3.5 rounded-xl text-left font-medium transition-all bg-maroon-800/90 text-white border border-amber-400/30 shadow-sm';
+        const activeIcon = activeBtn.querySelector('i');
+        if (activeIcon) activeIcon.classList.replace('text-rose-200', 'text-amber-400');
+      }
+
       const sidebar = document.getElementById('sidebar');
-      if (!sidebar.classList.contains('-translate-x-full') && window.innerWidth < 768) {
+      if (sidebar && !sidebar.classList.contains('-translate-x-full') && window.innerWidth < 768) {
         toggleMobileMenu();
       }
     }
@@ -895,8 +929,8 @@
     function toggleMobileMenu() {
       const sidebar = document.getElementById('sidebar');
       const overlay = document.getElementById('sidebar-overlay');
-      sidebar.classList.toggle('-translate-x-full');
-      overlay.classList.toggle('hidden');
+      if (sidebar) sidebar.classList.toggle('-translate-x-full');
+      if (overlay) overlay.classList.toggle('hidden');
     }
 
     function formatTanggalIndo(dateStr) {
@@ -935,7 +969,7 @@
     }
 
     // ==========================================
-    // 4. LOGIKA STATUS PERIZINAN
+    // 5. LOGIKA STATUS PERIZINAN
     // ==========================================
     function getComputedIzinStatus(item) {
       if (item.status === 'Sudah Kembali') return 'Sudah Kembali';
@@ -946,7 +980,7 @@
     }
 
     // ==========================================
-    // 5. RENDER DASHBOARD, PELANGGARAN & PERIZINAN
+    // 6. RENDER DASHBOARD, PELANGGARAN & PERIZINAN
     // ==========================================
     function updateAllUI() {
       renderDashboard();
@@ -955,21 +989,21 @@
     }
 
     function renderDashboard() {
-      // Update Logo Pondok di semua posisi (Header Mobile, Sidebar, Kartu Tentang Pondok)
+      // Update Logo Pondok (Default: dmn.jpeg atau custom upload)
       const logoHTML = state.pondok.logoCustom
-        ? `<img src="${state.pondok.logoCustom}" alt="Logo Pondok" class="w-full h-full object-contain">`
-        : DEFAULT_LOGO_SVG;
+        ? `<img src="${state.pondok.logoCustom}" alt="Logo Pondok" class="w-full h-full object-contain rounded-full bg-white p-0.5">`
+        : DEFAULT_LOGO_HTML;
       document.querySelectorAll('.logo-pondok-container').forEach(el => {
         el.innerHTML = logoHTML;
       });
 
       // Update Profil Pondok
-      document.getElementById('pondok-nama').textContent = state.pondok.nama;
-      document.getElementById('pondok-alamat').querySelector('span').textContent = state.pondok.alamat;
-      document.getElementById('pondok-deskripsi').textContent = state.pondok.deskripsi;
-      document.getElementById('pondok-motto').textContent = state.pondok.motto;
-      document.getElementById('pondok-pengasuh').textContent = state.pondok.pengasuh;
-      document.getElementById('pondok-kontak').textContent = state.pondok.kontak;
+      document.getElementById('pondok-nama').textContent = state.pondok.nama || defaultPondok.nama;
+      document.getElementById('pondok-alamat').querySelector('span').textContent = state.pondok.alamat || defaultPondok.alamat;
+      document.getElementById('pondok-deskripsi').textContent = state.pondok.deskripsi || defaultPondok.deskripsi;
+      document.getElementById('pondok-motto').textContent = state.pondok.motto || defaultPondok.motto;
+      document.getElementById('pondok-pengasuh').textContent = state.pondok.pengasuh || defaultPondok.pengasuh;
+      document.getElementById('pondok-kontak').textContent = state.pondok.kontak || defaultPondok.kontak;
 
       // Update Statistik
       const totalPel = state.pelanggaran.length;
@@ -981,7 +1015,7 @@
         const st = getComputedIzinStatus(izin);
         if (st === 'Sedang Keluar') sedangKeluar++;
         if (st === 'Terlambat') {
-          sedangKeluar++; // Masih di luar pondok
+          sedangKeluar++;
           terlambat++;
         }
       });
@@ -1027,7 +1061,8 @@
     }
 
     function renderPelanggaran() {
-      const query = document.getElementById('search-pelanggaran').value.toLowerCase();
+      const searchEl = document.getElementById('search-pelanggaran');
+      const query = searchEl ? searchEl.value.toLowerCase() : '';
       const filter = state.filterPelanggaran;
 
       const filtered = state.pelanggaran
@@ -1079,7 +1114,7 @@
             <td class="py-3.5 px-5 text-slate-500 text-xs max-w-xs">${escapeHTML(item.keterangan || '-')}</td>
             <td class="py-3.5 px-5 whitespace-nowrap text-right">
               <div class="inline-flex items-center gap-1">
-                <button onclick="openPelanggaranModal('${item.id}')" title="Edit" class="p-2 text-slate-500 hover:text-maroon-700 hover:bg-maroon-50 rounded-lg transition">
+                <button onclick="editPelanggaran('${item.id}')" title="Edit" class="p-2 text-slate-500 hover:text-maroon-700 hover:bg-maroon-50 rounded-lg transition">
                   <i class="fa-solid fa-pen-to-square"></i>
                 </button>
                 <button onclick="deletePelanggaran('${item.id}')" title="Hapus" class="p-2 text-slate-500 hover:text-red-600 hover:bg-red-50 rounded-lg transition">
@@ -1093,7 +1128,8 @@
     }
 
     function renderPerizinan() {
-      const query = document.getElementById('search-perizinan').value.toLowerCase();
+      const searchEl = document.getElementById('search-perizinan');
+      const query = searchEl ? searchEl.value.toLowerCase() : '';
       const filter = state.filterPerizinan;
 
       const filtered = state.perizinan
@@ -1145,7 +1181,7 @@
                     <i class="fa-solid fa-check"></i> Kembali
                   </button>
                 ` : ''}
-                <button onclick="openPerizinanModal('${item.id}')" title="Edit" class="p-2 text-slate-500 hover:text-maroon-700 hover:bg-maroon-50 rounded-lg transition">
+                <button onclick="editPerizinan('${item.id}')" title="Edit" class="p-2 text-slate-500 hover:text-maroon-700 hover:bg-maroon-50 rounded-lg transition">
                   <i class="fa-solid fa-pen-to-square"></i>
                 </button>
                 <button onclick="deletePerizinan('${item.id}')" title="Hapus" class="p-2 text-slate-500 hover:text-red-600 hover:bg-red-50 rounded-lg transition">
@@ -1159,7 +1195,7 @@
     }
 
     // ==========================================
-    // 6. FILTER HANDLERS
+    // 7. FILTER HANDLERS
     // ==========================================
     function setFilterPelanggaran(jenis) {
       state.filterPelanggaran = jenis;
@@ -1182,7 +1218,7 @@
     }
 
     // ==========================================
-    // 7. CRUD: PELANGGARAN SANTRI
+    // 8. CRUD: PELANGGARAN SANTRI
     // ==========================================
     function openPelanggaranModal(id = null) {
       const form = document.getElementById('form-pelanggaran');
@@ -1204,6 +1240,10 @@
         document.getElementById('pel-tanggal').value = new Date().toISOString().split('T')[0];
       }
       openModal('modal-pelanggaran');
+    }
+
+    function editPelanggaran(id) {
+      openPelanggaranModal(id);
     }
 
     function savePelanggaran(e) {
@@ -1241,7 +1281,7 @@
     }
 
     // ==========================================
-    // 8. CRUD: PERIZINAN SANTRI
+    // 9. CRUD: PERIZINAN SANTRI
     // ==========================================
     function openPerizinanModal(id = null) {
       const form = document.getElementById('form-perizinan');
@@ -1261,10 +1301,14 @@
         document.getElementById('modal-perizinan-title').textContent = 'Tambah Perizinan Santri';
         document.getElementById('izin-id').value = '';
         document.getElementById('izin-keluar').value = getRelativeDateTime(0);
-        document.getElementById('izin-batas').value = getRelativeDateTime(4); // Default 4 jam dari sekarang
+        document.getElementById('izin-batas').value = getRelativeDateTime(4);
         document.getElementById('izin-status').value = 'Sedang Keluar';
       }
       openModal('modal-perizinan');
+    }
+
+    function editPerizinan(id) {
+      openPerizinanModal(id);
     }
 
     function savePerizinan(e) {
@@ -1311,7 +1355,7 @@
     }
 
     // ==========================================
-    // 9. CRUD: PROFIL PONDOK & STRUKTUR RI'AYAH
+    // 10. CRUD: PROFIL PONDOK & STRUKTUR RI'AYAH
     // ==========================================
     function openPondokModal() {
       tempLogoDataUrl = state.pondok.logoCustom || "";
@@ -1329,8 +1373,8 @@
       const previewEl = document.getElementById('preview-logo-modal');
       if (!previewEl) return;
       previewEl.innerHTML = tempLogoDataUrl
-        ? `<img src="${tempLogoDataUrl}" alt="Preview Logo" class="w-full h-full object-contain">`
-        : DEFAULT_LOGO_SVG;
+        ? `<img src="${tempLogoDataUrl}" alt="Preview Logo" class="w-full h-full object-contain rounded-full bg-white p-0.5">`
+        : DEFAULT_LOGO_HTML;
     }
 
     function handleLogoUpload(event) {
@@ -1340,7 +1384,6 @@
       reader.onload = function(e) {
         const img = new Image();
         img.onload = function() {
-          // Kompres otomatis ke max 256px agar ringan di localStorage
           const canvas = document.createElement('canvas');
           const maxSize = 256;
           let width = img.width;
@@ -1364,7 +1407,8 @@
 
     function resetDefaultLogo() {
       tempLogoDataUrl = "";
-      document.getElementById('edit-pondok-logo-file').value = "";
+      const fileInput = document.getElementById('edit-pondok-logo-file');
+      if (fileInput) fileInput.value = "";
       updateModalLogoPreview();
     }
 
@@ -1382,21 +1426,6 @@
       saveToStorage();
       closeModal('modal-pondok');
       showToast('Profil & logo pondok berhasil diperbarui.', 'success');
-    }
-
-    function savePondok(e) {
-      e.preventDefault();
-      state.pondok = {
-        nama: document.getElementById('edit-pondok-nama').value.trim(),
-        alamat: document.getElementById('edit-pondok-alamat').value.trim(),
-        deskripsi: document.getElementById('edit-pondok-deskripsi').value.trim(),
-        motto: document.getElementById('edit-pondok-motto').value.trim(),
-        pengasuh: document.getElementById('edit-pondok-pengasuh').value.trim(),
-        kontak: document.getElementById('edit-pondok-kontak').value.trim()
-      };
-      saveToStorage();
-      closeModal('modal-pondok');
-      showToast('Profil pondok berhasil diperbarui.', 'success');
     }
 
     function openStrukturModal(id = null) {
@@ -1450,7 +1479,7 @@
     }
 
     // ==========================================
-    // 10. EKSPOR DATA KE CSV
+    // 11. EKSPOR DATA KE CSV
     // ==========================================
     function downloadCSV(filename, rows) {
       const csvContent = "data:text/csv;charset=utf-8,\uFEFF" + rows.map(e => e.map(cell => `"${String(cell || '').replace(/"/g, '""')}"`).join(",")).join("\n");
@@ -1477,16 +1506,18 @@
     }
 
     // ==========================================
-    // 11. HELPER MODAL, TOAST & KEAMANAN XSS
+    // 12. HELPER MODAL, TOAST & KEAMANAN XSS
     // ==========================================
     function openModal(id) {
       const el = document.getElementById(id);
+      if (!el) return;
       el.classList.remove('hidden');
       el.classList.add('flex');
     }
 
     function closeModal(id) {
       const el = document.getElementById(id);
+      if (!el) return;
       el.classList.add('hidden');
       el.classList.remove('flex');
     }
@@ -1533,14 +1564,13 @@
     }
 
     // ==========================================
-    // 12. STARTUP APLIKASI
+    // 13. STARTUP APLIKASI
     // ==========================================
     window.addEventListener('DOMContentLoaded', () => {
       loadData();
       updateAllUI();
       updateClock();
       setInterval(updateClock, 1000);
-      // Cek status keterlambatan setiap 30 detik secara otomatis
       setInterval(() => {
         renderDashboard();
         renderPerizinan();
