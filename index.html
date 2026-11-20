@@ -3,14 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Sistem Informasi Ri'ayah — Pondok Pesantren Darul Iman</title>
-  <!-- Tailwind CSS -->
+  <title>Sistem Informasi Ri'ayah — Keamanan Pondok Pesantren</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <!-- Google Fonts: Inter & Amiri -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Amiri:wght@700&display=swap" rel="stylesheet">
-  <!-- Font Awesome 6.5.1 -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  
   <script>
     tailwind.config = {
       theme: {
@@ -30,12 +26,6 @@
               800: '#660000',
               900: '#4a040c',
               950: '#2d0207',
-            },
-            gold: {
-              100: '#fef3c7',
-              400: '#fbbf24',
-              500: '#f59e0b',
-              600: '#d97706',
             }
           }
         }
@@ -43,66 +33,47 @@
     }
   </script>
   <style>
-    /* Pola latar belakang islami bernuansa Maroon */
     .islamic-pattern {
       background-color: #5a0a14;
       background-image: radial-gradient(rgba(251, 191, 36, 0.14) 1.5px, transparent 1.5px), radial-gradient(rgba(255, 255, 255, 0.06) 1.5px, #5a0a14 1.5px);
       background-size: 32px 32px;
       background-position: 0 0, 16px 16px;
     }
-    /* Custom scrollbar */
-    ::-webkit-scrollbar {
-      width: 6px;
-      height: 6px;
-    }
-    ::-webkit-scrollbar-track {
-      background: #f1f5f9;
-    }
-    ::-webkit-scrollbar-thumb {
-      background: #cbd5e1;
-      border-radius: 9999px;
-    }
-    ::-webkit-scrollbar-thumb:hover {
-      background: #94a3b8;
-    }
+    ::-webkit-scrollbar { width: 6px; height: 6px; }
+    ::-webkit-scrollbar-track { background: #f1f5f9; }
+    ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 9999px; }
   </style>
 </head>
 <body class="bg-slate-50 text-slate-800 font-sans antialiased selection:bg-maroon-200 selection:text-maroon-900">
 
-  <!-- Toast Notification Container -->
   <div id="toast-container" class="fixed bottom-5 right-5 z-50 flex flex-col gap-2 pointer-events-none"></div>
 
-  <!-- Layout Utama -->
   <div class="min-h-screen flex flex-col md:flex-row">
     
-    <!-- Mobile Top Header -->
+    <!-- Header Mobile -->
     <header class="md:hidden islamic-pattern text-white px-4 py-3.5 flex items-center justify-between shadow-md sticky top-0 z-30">
       <div class="flex items-center gap-3">
-        <!-- LOGO PONDOK (Header Mobile) -->
-        <div class="logo-pondok-container w-10 h-10 rounded-full bg-white p-0.5 shadow-xs flex items-center justify-center shrink-0 overflow-hidden">
-          <img src="dmn.jpeg" alt="Logo Pondok" class="w-full h-full object-contain rounded-full bg-white p-0.5" onerror="this.src='https://placehold.co/100x100/800000/ffffff?text=RI'">
+        <div class="logo-pondok-container w-10 h-10 rounded-xl bg-white p-0.5 flex items-center justify-center shrink-0 overflow-hidden">
+          <img src="dmn.jpeg" alt="Logo Pondok" class="w-full h-full object-contain rounded-lg">
         </div>
         <div>
           <h1 class="font-bold text-base leading-tight tracking-wide">RI'AYAH PONDOK</h1>
-          <p class="text-[11px] text-rose-200">PP. Darul Iman</p>
+          <p class="text-[11px] text-rose-200">Bagian Keamanan & Ketertiban</p>
         </div>
       </div>
-      <button id="mobile-menu-btn" onclick="toggleMobileMenu()" class="p-2 rounded-lg bg-maroon-800/80 hover:bg-maroon-700 text-white focus:outline-none">
+      <button onclick="toggleMobileMenu()" class="p-2 rounded-lg bg-maroon-800/80 hover:bg-maroon-700 text-white">
         <i class="fa-solid fa-bars text-lg"></i>
       </button>
     </header>
 
-    <!-- Overlay Mobile Sidebar -->
-    <div id="sidebar-overlay" onclick="toggleMobileMenu()" class="fixed inset-0 bg-slate-900/50 backdrop-blur-xs z-30 hidden md:hidden"></div>
+    <div id="sidebar-overlay" onclick="toggleMobileMenu()" class="fixed inset-0 bg-slate-900/50 z-30 hidden md:hidden"></div>
 
-    <!-- Sidebar Navigasi -->
-    <aside id="sidebar" class="fixed md:sticky top-0 left-0 z-40 h-screen w-72 islamic-pattern text-white flex flex-col transition-transform duration-300 ease-in-out -translate-x-full md:translate-x-0 shadow-xl shrink-0">
-      <!-- Brand Logo -->
+    <!-- Sidebar -->
+    <aside id="sidebar" class="fixed md:sticky top-0 left-0 z-40 h-screen w-72 islamic-pattern text-white flex flex-col transition-transform duration-300 -translate-x-full md:translate-x-0 shadow-xl shrink-0">
       <div class="p-6 border-b border-maroon-800/80 flex items-center justify-between">
         <div class="flex items-center gap-3.5">
-          <!-- LOGO PONDOK (Sidebar Utama) -->
-          <div class="logo-pondok-container w-12 h-12 rounded-full bg-white p-0.5 flex items-center justify-center shadow-lg shadow-black/25 shrink-0 overflow-hidden">
-            <img src="dmn.jpeg" alt="Logo Pondok" class="w-full h-full object-contain rounded-full bg-white p-0.5" onerror="this.src='https://placehold.co/100x100/800000/ffffff?text=RI'">
+          <div class="logo-pondok-container w-12 h-12 rounded-2xl bg-white p-1 flex items-center justify-center shadow-lg shrink-0 overflow-hidden">
+            <img src="dmn.jpeg" alt="Logo Pondok" class="w-full h-full object-contain rounded-xl">
           </div>
           <div>
             <span class="text-xs font-semibold uppercase tracking-widest text-amber-400 block">Divisi Keamanan</span>
@@ -114,7 +85,6 @@
         </button>
       </div>
 
-      <!-- Menu Navigasi -->
       <nav class="flex-1 px-4 py-6 space-y-2 overflow-y-auto">
         <p class="px-3 text-[11px] font-semibold uppercase tracking-wider text-rose-200/70 mb-2">Menu Utama</p>
         
@@ -140,16 +110,13 @@
         </button>
       </nav>
 
-      <!-- Info Waktu & Reset Data -->
       <div class="p-4 m-4 rounded-2xl bg-maroon-950/60 border border-maroon-800/80 text-xs space-y-3">
         <div class="flex items-center gap-2 text-amber-300 font-medium">
           <i class="fa-regular fa-clock"></i>
           <span id="live-clock">Memuat waktu...</span>
         </div>
-        <p class="text-rose-200/80 leading-relaxed">
-          Data tersimpan otomatis di browser perangkat ini.
-        </p>
-        <button onclick="openResetModal()" class="w-full py-2 px-3 rounded-lg bg-maroon-900 hover:bg-red-950 text-rose-200 hover:text-white border border-maroon-700 hover:border-red-700 transition-colors flex items-center justify-center gap-2 text-xs font-medium">
+        <p class="text-rose-200/80 leading-relaxed">Data tersimpan otomatis di browser perangkat ini.</p>
+        <button onclick="resetData()" class="w-full py-2 px-3 rounded-lg bg-maroon-900 hover:bg-red-950 text-rose-200 hover:text-white border border-maroon-700 transition-colors flex items-center justify-center gap-2 text-xs font-medium">
           <i class="fa-solid fa-rotate-left"></i> Reset Data Contoh
         </button>
       </div>
@@ -158,12 +125,9 @@
     <!-- Konten Utama -->
     <main class="flex-1 min-w-0 p-4 sm:p-6 lg:p-8 max-w-7xl mx-auto w-full">
       
-      <!-- ========================================== -->
-      <!-- 1. VIEW: DASHBOARD                         -->
-      <!-- ========================================== -->
+      <!-- 1. DASHBOARD -->
       <section id="view-dashboard" class="space-y-6">
-        <!-- Header Halaman -->
-        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-white p-6 rounded-2xl shadow-xs border border-slate-200/80">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-white p-6 rounded-2xl shadow-sm border border-slate-200/80">
           <div>
             <div class="flex items-center gap-2 text-maroon-700 text-xs font-semibold uppercase tracking-wider mb-1">
               <i class="fa-solid fa-star-and-crescent"></i>
@@ -173,19 +137,18 @@
             <p class="text-sm text-slate-500 mt-0.5">Ringkasan ketertiban santri, profil pondok, dan struktur kepengurusan Ri'ayah.</p>
           </div>
           <div class="flex flex-wrap gap-2">
-            <button onclick="switchTab('pelanggaran'); openPelanggaranModal();" class="px-4 py-2.5 bg-maroon-700 hover:bg-maroon-800 text-white text-sm font-medium rounded-xl shadow-xs transition flex items-center gap-2">
+            <button onclick="switchTab('pelanggaran'); openPelanggaranModal();" class="px-4 py-2.5 bg-maroon-700 hover:bg-maroon-800 text-white text-sm font-medium rounded-xl shadow-sm transition flex items-center gap-2">
               <i class="fa-solid fa-plus"></i> Catat Pelanggaran
             </button>
-            <button onclick="switchTab('perizinan'); openPerizinanModal();" class="px-4 py-2.5 bg-amber-500 hover:bg-amber-600 text-slate-950 text-sm font-semibold rounded-xl shadow-xs transition flex items-center gap-2">
+            <button onclick="switchTab('perizinan'); openPerizinanModal();" class="px-4 py-2.5 bg-amber-500 hover:bg-amber-600 text-slate-950 text-sm font-semibold rounded-xl shadow-sm transition flex items-center gap-2">
               <i class="fa-solid fa-plus"></i> Buat Izin Keluar
             </button>
           </div>
         </div>
 
-        <!-- Kartu Statistik Ringkas -->
+        <!-- Statistik -->
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-          <!-- Stat 1: Total Pelanggaran -->
-          <div class="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-xs flex items-center justify-between">
+          <div class="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-sm flex items-center justify-between">
             <div>
               <p class="text-xs font-semibold uppercase tracking-wider text-slate-400">Total Pelanggaran</p>
               <h3 id="stat-total-pelanggaran" class="text-3xl font-bold text-slate-800 mt-1">0</h3>
@@ -196,8 +159,7 @@
             </div>
           </div>
 
-          <!-- Stat 2: Pelanggaran Berat -->
-          <div class="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-xs flex items-center justify-between">
+          <div class="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-sm flex items-center justify-between">
             <div>
               <p class="text-xs font-semibold uppercase tracking-wider text-slate-400">Pelanggaran Berat</p>
               <h3 id="stat-pelanggaran-berat" class="text-3xl font-bold text-red-600 mt-1">0</h3>
@@ -208,8 +170,7 @@
             </div>
           </div>
 
-          <!-- Stat 3: Santri Sedang Keluar -->
-          <div class="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-xs flex items-center justify-between">
+          <div class="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-sm flex items-center justify-between">
             <div>
               <p class="text-xs font-semibold uppercase tracking-wider text-slate-400">Sedang Keluar / Izin</p>
               <h3 id="stat-sedang-keluar" class="text-3xl font-bold text-amber-600 mt-1">0</h3>
@@ -220,8 +181,7 @@
             </div>
           </div>
 
-          <!-- Stat 4: Terlambat Kembali -->
-          <div class="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-xs flex items-center justify-between">
+          <div class="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-sm flex items-center justify-between">
             <div>
               <p class="text-xs font-semibold uppercase tracking-wider text-slate-400">Terlambat Kembali</p>
               <h3 id="stat-terlambat" class="text-3xl font-bold text-rose-600 mt-1">0</h3>
@@ -233,11 +193,9 @@
           </div>
         </div>
 
-        <!-- Grid Konten Dashboard: Tentang Pondok & Struktur Ri'ayah -->
+        <!-- Tentang Pondok & Struktur Ri'ayah -->
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
-          
-          <!-- Bagian: Tentang Pondok (5 Kolom) -->
-          <div class="lg:col-span-5 bg-white rounded-2xl border border-slate-200/80 shadow-xs overflow-hidden flex flex-col">
+          <div class="lg:col-span-5 bg-white rounded-2xl border border-slate-200/80 shadow-sm overflow-hidden flex flex-col">
             <div class="islamic-pattern px-6 py-5 text-white flex items-center justify-between">
               <div class="flex items-center gap-3">
                 <i class="fa-solid fa-kaaba text-amber-400 text-lg"></i>
@@ -251,34 +209,27 @@
             <div class="p-6 flex-1 flex flex-col justify-between space-y-5">
               <div class="space-y-4">
                 <div class="flex items-start gap-4">
-                  <!-- LOGO PONDOK (Kartu Tentang Pondok) -->
-                  <div class="logo-pondok-container w-16 h-16 rounded-full bg-white border border-slate-200 p-0.5 shadow-xs flex items-center justify-center shrink-0 overflow-hidden">
-                    <img src="dmn.jpeg" alt="Logo Pondok" class="w-full h-full object-contain rounded-full bg-white p-0.5" onerror="this.src='https://placehold.co/100x100/800000/ffffff?text=RI'">
+                  <div class="logo-pondok-container w-16 h-16 rounded-2xl bg-white border border-slate-200 p-1 shadow-sm flex items-center justify-center shrink-0 overflow-hidden">
+                    <img src="dmn.jpeg" alt="Logo Pondok" class="w-full h-full object-contain rounded-xl">
                   </div>
                   <div>
                     <span class="text-xs font-semibold uppercase tracking-wider text-maroon-700 bg-maroon-50 px-2.5 py-1 rounded-md">Profil Lembaga</span>
                     <h4 id="pondok-nama" class="text-xl font-bold text-slate-900 mt-2">Pondok Pesantren Darul Iman</h4>
                     <p id="pondok-alamat" class="text-xs text-slate-500 flex items-center gap-1.5 mt-1">
                       <i class="fa-solid fa-location-dot text-maroon-600"></i>
-                      <span>Jl. Raya Pesantren Darul Iman, Pandeglang, Banten</span>
+                      <span>Pandeglang, Banten</span>
                     </p>
                   </div>
                 </div>
-
                 <p id="pondok-deskripsi" class="text-sm text-slate-600 leading-relaxed">
-                  Lembaga pendidikan Islam terpadu yang membina santri agar berakhlakul karimah, disiplin, mandiri, serta berpegang teguh pada nilai-nilai keislaman.
+                  Lembaga pendidikan Islam yang berkomitmen membentuk santri berakhlakul karimah, disiplin, dan berwawasan luas melalui pembinaan bagian Ri'ayah (Keamanan).
                 </p>
-
-                <div class="p-3.5 rounded-xl bg-amber-50/80 border border-amber-200/70 text-xs text-amber-900 flex items-start gap-2.5">
-                  <i class="fa-solid fa-quote-left text-amber-500 mt-0.5"></i>
-                  <span id="pondok-motto" class="italic font-medium">Disiplin adalah cermin akhlak santri dan kunci keberhasilan menuntut ilmu.</span>
-                </div>
               </div>
 
               <div class="pt-4 border-t border-slate-100 grid grid-cols-2 gap-3 text-xs">
                 <div class="bg-slate-50 p-3 rounded-xl">
                   <span class="text-slate-400 block">Pengasuh Pondok</span>
-                  <strong id="pondok-pengasuh" class="text-slate-800 font-semibold mt-0.5 block">KH. Ahmad Fauzi, Lc.</strong>
+                  <strong id="pondok-pengasuh" class="text-slate-800 font-semibold mt-0.5 block">Pimpinan Pondok</strong>
                 </div>
                 <div class="bg-slate-50 p-3 rounded-xl">
                   <span class="text-slate-400 block">Kontak Pos Keamanan</span>
@@ -288,8 +239,7 @@
             </div>
           </div>
 
-          <!-- Bagian: Struktur Ri'ayah (7 Kolom) -->
-          <div class="lg:col-span-7 bg-white rounded-2xl border border-slate-200/80 shadow-xs overflow-hidden flex flex-col">
+          <div class="lg:col-span-7 bg-white rounded-2xl border border-slate-200/80 shadow-sm overflow-hidden flex flex-col">
             <div class="px-6 py-5 border-b border-slate-100 flex flex-wrap items-center justify-between gap-3">
               <div class="flex items-center gap-3">
                 <div class="w-10 h-10 rounded-xl bg-maroon-100 text-maroon-700 flex items-center justify-center">
@@ -300,28 +250,20 @@
                   <p class="text-xs text-slate-500">Susunan kepengurusan bagian keamanan & ketertiban santri</p>
                 </div>
               </div>
-              <button onclick="openStrukturModal()" class="px-3.5 py-2 bg-maroon-700 hover:bg-maroon-800 text-white text-xs font-semibold rounded-xl transition flex items-center gap-1.5 shadow-xs">
+              <button onclick="openStrukturModal()" class="px-3.5 py-2 bg-maroon-700 hover:bg-maroon-800 text-white text-xs font-semibold rounded-xl transition flex items-center gap-1.5 shadow-sm">
                 <i class="fa-solid fa-user-plus"></i> Tambah Pengurus
               </button>
             </div>
-
             <div class="p-6 flex-1">
-              <div id="struktur-list" class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <!-- Diisi via JavaScript -->
-              </div>
+              <div id="struktur-list" class="grid grid-cols-1 sm:grid-cols-2 gap-4"></div>
             </div>
           </div>
-
         </div>
       </section>
 
-
-      <!-- ========================================== -->
-      <!-- 2. VIEW: DATA PELANGGARAN SANTRI           -->
-      <!-- ========================================== -->
+      <!-- 2. DATA PELANGGARAN -->
       <section id="view-pelanggaran" class="hidden space-y-6">
-        <!-- Header -->
-        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-white p-6 rounded-2xl shadow-xs border border-slate-200/80">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-white p-6 rounded-2xl shadow-sm border border-slate-200/80">
           <div>
             <h2 class="text-2xl font-bold text-slate-900">Data Pelanggaran Santri</h2>
             <p class="text-sm text-slate-500 mt-0.5">Pencatatan kedisiplinan santri berdasarkan kategori Ringan, Sedang, dan Berat.</p>
@@ -330,30 +272,27 @@
             <button onclick="exportPelanggaranCSV()" class="px-4 py-2.5 bg-white hover:bg-slate-50 text-slate-700 border border-slate-300 text-sm font-medium rounded-xl transition flex items-center gap-2">
               <i class="fa-solid fa-file-csv text-maroon-600"></i> Ekspor CSV
             </button>
-            <button onclick="openPelanggaranModal()" class="px-4 py-2.5 bg-maroon-700 hover:bg-maroon-800 text-white text-sm font-semibold rounded-xl shadow-xs transition flex items-center gap-2">
+            <button onclick="openPelanggaranModal()" class="px-4 py-2.5 bg-maroon-700 hover:bg-maroon-800 text-white text-sm font-semibold rounded-xl shadow-sm transition flex items-center gap-2">
               <i class="fa-solid fa-plus"></i> Tambah Pelanggaran
             </button>
           </div>
         </div>
 
-        <!-- Filter & Pencarian -->
-        <div class="bg-white p-4 rounded-2xl border border-slate-200/80 shadow-xs flex flex-col md:flex-row gap-3 items-stretch md:items-center justify-between">
+        <div class="bg-white p-4 rounded-2xl border border-slate-200/80 shadow-sm flex flex-col md:flex-row gap-3 items-stretch md:items-center justify-between">
           <div class="relative flex-1">
             <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400 text-sm"></i>
-            <input type="text" id="search-pelanggaran" oninput="renderPelanggaran()" placeholder="Cari nama santri, kelas, atau sanksi..." class="w-full pl-10 pr-4 py-2.5 text-sm bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-maroon-500/30 focus:border-maroon-600 transition">
+            <input type="text" id="search-pelanggaran" oninput="renderPelanggaran()" placeholder="Cari nama santri, kelas, atau sanksi..." class="w-full pl-10 pr-4 py-2.5 text-sm bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-maroon-500/30 focus:border-maroon-600">
           </div>
-          
           <div class="flex flex-wrap items-center gap-2">
             <span class="text-xs font-semibold text-slate-500 mr-1">Filter Jenis:</span>
-            <button onclick="setFilterPelanggaran('Semua')" id="filter-pel-Semua" class="filter-pel-btn px-3 py-1.5 rounded-lg text-xs font-semibold bg-maroon-700 text-white transition">Semua</button>
-            <button onclick="setFilterPelanggaran('Ringan')" id="filter-pel-Ringan" class="filter-pel-btn px-3 py-1.5 rounded-lg text-xs font-semibold bg-slate-100 text-slate-600 hover:bg-amber-100 hover:text-amber-800 transition">Ringan</button>
-            <button onclick="setFilterPelanggaran('Sedang')" id="filter-pel-Sedang" class="filter-pel-btn px-3 py-1.5 rounded-lg text-xs font-semibold bg-slate-100 text-slate-600 hover:bg-orange-100 hover:text-orange-800 transition">Sedang</button>
-            <button onclick="setFilterPelanggaran('Berat')" id="filter-pel-Berat" class="filter-pel-btn px-3 py-1.5 rounded-lg text-xs font-semibold bg-slate-100 text-slate-600 hover:bg-red-100 hover:text-red-800 transition">Berat</button>
+            <button onclick="setFilterPelanggaran('Semua')" id="filter-pel-Semua" class="filter-pel-btn px-3 py-1.5 rounded-lg text-xs font-semibold bg-maroon-700 text-white">Semua</button>
+            <button onclick="setFilterPelanggaran('Ringan')" id="filter-pel-Ringan" class="filter-pel-btn px-3 py-1.5 rounded-lg text-xs font-semibold bg-slate-100 text-slate-600">Ringan</button>
+            <button onclick="setFilterPelanggaran('Sedang')" id="filter-pel-Sedang" class="filter-pel-btn px-3 py-1.5 rounded-lg text-xs font-semibold bg-slate-100 text-slate-600">Sedang</button>
+            <button onclick="setFilterPelanggaran('Berat')" id="filter-pel-Berat" class="filter-pel-btn px-3 py-1.5 rounded-lg text-xs font-semibold bg-slate-100 text-slate-600">Berat</button>
           </div>
         </div>
 
-        <!-- Tabel Data Pelanggaran -->
-        <div class="bg-white rounded-2xl border border-slate-200/80 shadow-xs overflow-hidden">
+        <div class="bg-white rounded-2xl border border-slate-200/80 shadow-sm overflow-hidden">
           <div class="overflow-x-auto">
             <table class="w-full text-left border-collapse">
               <thead>
@@ -367,28 +306,19 @@
                   <th class="py-4 px-5 text-right">Aksi</th>
                 </tr>
               </thead>
-              <tbody id="tbody-pelanggaran" class="divide-y divide-slate-100 text-sm">
-                <!-- Baris data dirender via JS -->
-              </tbody>
+              <tbody id="tbody-pelanggaran" class="divide-y divide-slate-100 text-sm"></tbody>
             </table>
           </div>
           <div id="empty-pelanggaran" class="hidden py-12 px-4 text-center">
-            <div class="w-16 h-16 rounded-full bg-slate-100 text-slate-400 flex items-center justify-center mx-auto mb-3 text-2xl">
-              <i class="fa-solid fa-folder-open"></i>
-            </div>
             <h4 class="font-semibold text-slate-700">Belum ada data pelanggaran</h4>
-            <p class="text-xs text-slate-500 mt-1">Silakan tambahkan catatan pelanggaran baru atau ubah kata kunci pencarian.</p>
+            <p class="text-xs text-slate-500 mt-1">Silakan tambahkan catatan pelanggaran baru.</p>
           </div>
         </div>
       </section>
 
-
-      <!-- ========================================== -->
-      <!-- 3. VIEW: DATA PERIZINAN SANTRI             -->
-      <!-- ========================================== -->
+      <!-- 3. DATA PERIZINAN -->
       <section id="view-perizinan" class="hidden space-y-6">
-        <!-- Header -->
-        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-white p-6 rounded-2xl shadow-xs border border-slate-200/80">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-white p-6 rounded-2xl shadow-sm border border-slate-200/80">
           <div>
             <h2 class="text-2xl font-bold text-slate-900">Data Perizinan Santri</h2>
             <p class="text-sm text-slate-500 mt-0.5">Pemantauan waktu keluar pondok, tujuan, dan batas waktu kembali santri.</p>
@@ -397,30 +327,27 @@
             <button onclick="exportPerizinanCSV()" class="px-4 py-2.5 bg-white hover:bg-slate-50 text-slate-700 border border-slate-300 text-sm font-medium rounded-xl transition flex items-center gap-2">
               <i class="fa-solid fa-file-csv text-maroon-600"></i> Ekspor CSV
             </button>
-            <button onclick="openPerizinanModal()" class="px-4 py-2.5 bg-amber-500 hover:bg-amber-600 text-slate-950 text-sm font-semibold rounded-xl shadow-xs transition flex items-center gap-2">
+            <button onclick="openPerizinanModal()" class="px-4 py-2.5 bg-amber-500 hover:bg-amber-600 text-slate-950 text-sm font-semibold rounded-xl shadow-sm transition flex items-center gap-2">
               <i class="fa-solid fa-plus"></i> Tambah Perizinan
             </button>
           </div>
         </div>
 
-        <!-- Filter & Pencarian -->
-        <div class="bg-white p-4 rounded-2xl border border-slate-200/80 shadow-xs flex flex-col md:flex-row gap-3 items-stretch md:items-center justify-between">
+        <div class="bg-white p-4 rounded-2xl border border-slate-200/80 shadow-sm flex flex-col md:flex-row gap-3 items-stretch md:items-center justify-between">
           <div class="relative flex-1">
             <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400 text-sm"></i>
-            <input type="text" id="search-perizinan" oninput="renderPerizinan()" placeholder="Cari nama santri, kelas, atau tujuan izin..." class="w-full pl-10 pr-4 py-2.5 text-sm bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-maroon-500/30 focus:border-maroon-600 transition">
+            <input type="text" id="search-perizinan" oninput="renderPerizinan()" placeholder="Cari nama santri, kelas, atau tujuan izin..." class="w-full pl-10 pr-4 py-2.5 text-sm bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-maroon-500/30 focus:border-maroon-600">
           </div>
-          
           <div class="flex flex-wrap items-center gap-2">
             <span class="text-xs font-semibold text-slate-500 mr-1">Status:</span>
-            <button onclick="setFilterPerizinan('Semua')" id="filter-izin-Semua" class="filter-izin-btn px-3 py-1.5 rounded-lg text-xs font-semibold bg-maroon-700 text-white transition">Semua</button>
-            <button onclick="setFilterPerizinan('Sedang Keluar')" id="filter-izin-Sedang Keluar" class="filter-izin-btn px-3 py-1.5 rounded-lg text-xs font-semibold bg-slate-100 text-slate-600 hover:bg-amber-100 hover:text-amber-800 transition">Sedang Keluar</button>
-            <button onclick="setFilterPerizinan('Terlambat')" id="filter-izin-Terlambat" class="filter-izin-btn px-3 py-1.5 rounded-lg text-xs font-semibold bg-slate-100 text-slate-600 hover:bg-red-100 hover:text-red-800 transition">Terlambat</button>
-            <button onclick="setFilterPerizinan('Sudah Kembali')" id="filter-izin-Sudah Kembali" class="filter-izin-btn px-3 py-1.5 rounded-lg text-xs font-semibold bg-slate-100 text-slate-600 hover:bg-emerald-100 hover:text-emerald-800 transition">Sudah Kembali</button>
+            <button onclick="setFilterPerizinan('Semua')" id="filter-izin-Semua" class="filter-izin-btn px-3 py-1.5 rounded-lg text-xs font-semibold bg-maroon-700 text-white">Semua</button>
+            <button onclick="setFilterPerizinan('Sedang Keluar')" id="filter-izin-Sedang Keluar" class="filter-izin-btn px-3 py-1.5 rounded-lg text-xs font-semibold bg-slate-100 text-slate-600">Sedang Keluar</button>
+            <button onclick="setFilterPerizinan('Terlambat')" id="filter-izin-Terlambat" class="filter-izin-btn px-3 py-1.5 rounded-lg text-xs font-semibold bg-slate-100 text-slate-600">Terlambat</button>
+            <button onclick="setFilterPerizinan('Sudah Kembali')" id="filter-izin-Sudah Kembali" class="filter-izin-btn px-3 py-1.5 rounded-lg text-xs font-semibold bg-slate-100 text-slate-600">Sudah Kembali</button>
           </div>
         </div>
 
-        <!-- Tabel Data Perizinan -->
-        <div class="bg-white rounded-2xl border border-slate-200/80 shadow-xs overflow-hidden">
+        <div class="bg-white rounded-2xl border border-slate-200/80 shadow-sm overflow-hidden">
           <div class="overflow-x-auto">
             <table class="w-full text-left border-collapse">
               <thead>
@@ -433,1149 +360,120 @@
                   <th class="py-4 px-5 text-right">Aksi</th>
                 </tr>
               </thead>
-              <tbody id="tbody-perizinan" class="divide-y divide-slate-100 text-sm">
-                <!-- Baris data dirender via JS -->
-              </tbody>
+              <tbody id="tbody-perizinan" class="divide-y divide-slate-100 text-sm"></tbody>
             </table>
           </div>
           <div id="empty-perizinan" class="hidden py-12 px-4 text-center">
-            <div class="w-16 h-16 rounded-full bg-slate-100 text-slate-400 flex items-center justify-center mx-auto mb-3 text-2xl">
-              <i class="fa-solid fa-id-badge"></i>
-            </div>
             <h4 class="font-semibold text-slate-700">Belum ada data perizinan</h4>
             <p class="text-xs text-slate-500 mt-1">Klik tombol "Tambah Perizinan" untuk mencatat santri yang izin keluar.</p>
           </div>
         </div>
       </section>
-
     </main>
   </div>
 
-
-  <!-- ========================================== -->
-  <!-- MODAL 1: TAMBAH / EDIT PELANGGARAN         -->
-  <!-- ========================================== -->
-  <div id="modal-pelanggaran" class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-slate-900/60 backdrop-blur-xs">
+  <!-- MODAL PELANGGARAN -->
+  <div id="modal-pelanggaran" class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-slate-900/60">
     <div class="bg-white rounded-2xl shadow-2xl w-full max-w-lg overflow-hidden">
       <div class="islamic-pattern px-6 py-4 text-white flex items-center justify-between">
         <h3 id="modal-pelanggaran-title" class="font-bold text-lg">Tambah Data Pelanggaran</h3>
-        <button onclick="closeModal('modal-pelanggaran')" class="text-rose-200 hover:text-white p-1">
-          <i class="fa-solid fa-xmark text-lg"></i>
-        </button>
+        <button onclick="closeModal('modal-pelanggaran')" class="text-rose-200 hover:text-white p-1"><i class="fa-solid fa-xmark text-lg"></i></button>
       </div>
-      <form id="form-pelanggaran" onsubmit="savePelanggaran(event)" class="p-6 space-y-4">
+      <form onsubmit="savePelanggaran(event)" class="p-6 space-y-4">
         <input type="hidden" id="pel-id">
-        
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div>
-            <label class="block text-xs font-semibold text-slate-700 mb-1.5">Tanggal Pelanggaran <span class="text-red-500">*</span></label>
-            <input type="date" id="pel-tanggal" required class="w-full px-3.5 py-2.5 text-sm border border-slate-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-maroon-500/30 focus:border-maroon-600">
+            <label class="block text-xs font-semibold text-slate-700 mb-1.5">Tanggal Pelanggaran *</label>
+            <input type="date" id="pel-tanggal" required class="w-full px-3.5 py-2.5 text-sm border border-slate-300 rounded-xl">
           </div>
           <div>
-            <label class="block text-xs font-semibold text-slate-700 mb-1.5">Jenis Pelanggaran <span class="text-red-500">*</span></label>
-            <select id="pel-jenis" required class="w-full px-3.5 py-2.5 text-sm border border-slate-300 rounded-xl bg-white focus:outline-none focus:ring-2 focus:ring-maroon-500/30 focus:border-maroon-600 font-medium">
+            <label class="block text-xs font-semibold text-slate-700 mb-1.5">Jenis Pelanggaran *</label>
+            <select id="pel-jenis" required class="w-full px-3.5 py-2.5 text-sm border border-slate-300 rounded-xl bg-white font-medium">
               <option value="Ringan">🟡 Ringan</option>
               <option value="Sedang">🟠 Sedang</option>
               <option value="Berat">🔴 Berat</option>
             </select>
           </div>
         </div>
-
         <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
           <div class="sm:col-span-2">
-            <label class="block text-xs font-semibold text-slate-700 mb-1.5">Nama Santri <span class="text-red-500">*</span></label>
-            <input type="text" id="pel-nama" required placeholder="Contoh: Muhammad Rizki" class="w-full px-3.5 py-2.5 text-sm border border-slate-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-maroon-500/30 focus:border-maroon-600">
+            <label class="block text-xs font-semibold text-slate-700 mb-1.5">Nama Santri *</label>
+            <input type="text" id="pel-nama" required placeholder="Nama lengkap santri" class="w-full px-3.5 py-2.5 text-sm border border-slate-300 rounded-xl">
           </div>
           <div>
-            <label class="block text-xs font-semibold text-slate-700 mb-1.5">Kelas <span class="text-red-500">*</span></label>
-            <input type="text" id="pel-kelas" list="daftar-kelas" required placeholder="Pilih/ketik..." class="w-full px-3.5 py-2.5 text-sm border border-slate-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-maroon-500/30 focus:border-maroon-600">
+            <label class="block text-xs font-semibold text-slate-700 mb-1.5">Kelas *</label>
+            <input type="text" id="pel-kelas" required placeholder="Contoh: 2 KMI" class="w-full px-3.5 py-2.5 text-sm border border-slate-300 rounded-xl">
           </div>
         </div>
-
         <div>
-          <label class="block text-xs font-semibold text-slate-700 mb-1.5">Sanksi / Takzir <span class="text-red-500">*</span></label>
-          <input type="text" id="pel-sanksi" required placeholder="Contoh: Menghafal 1 halaman Al-Qur'an / Membersihkan halaman masjid" class="w-full px-3.5 py-2.5 text-sm border border-slate-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-maroon-500/30 focus:border-maroon-600">
+          <label class="block text-xs font-semibold text-slate-700 mb-1.5">Sanksi / Takzir *</label>
+          <input type="text" id="pel-sanksi" required placeholder="Contoh: Menghafal surat pendek / piket kebersihan" class="w-full px-3.5 py-2.5 text-sm border border-slate-300 rounded-xl">
         </div>
-
         <div>
-          <label class="block text-xs font-semibold text-slate-700 mb-1.5">Keterangan Kronologi</label>
-          <textarea id="pel-keterangan" rows="3" placeholder="Jelaskan detail kejadian pelanggaran..." class="w-full px-3.5 py-2.5 text-sm border border-slate-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-maroon-500/30 focus:border-maroon-600"></textarea>
+          <label class="block text-xs font-semibold text-slate-700 mb-1.5">Keterangan</label>
+          <textarea id="pel-keterangan" rows="3" placeholder="Detail kronologi pelanggaran..." class="w-full px-3.5 py-2.5 text-sm border border-slate-300 rounded-xl"></textarea>
         </div>
-
-        <div class="pt-3 flex items-center justify-end gap-2.5 border-t border-slate-100">
-          <button type="button" onclick="closeModal('modal-pelanggaran')" class="px-4 py-2.5 text-sm font-medium text-slate-600 hover:bg-slate-100 rounded-xl transition">Batal</button>
-          <button type="submit" class="px-5 py-2.5 text-sm font-semibold bg-maroon-700 hover:bg-maroon-800 text-white rounded-xl shadow-xs transition">Simpan Data</button>
+        <div class="pt-3 flex justify-end gap-2.5 border-t border-slate-100">
+          <button type="button" onclick="closeModal('modal-pelanggaran')" class="px-4 py-2 text-sm font-medium text-slate-600 bg-slate-100 rounded-xl">Batal</button>
+          <button type="submit" class="px-5 py-2 text-sm font-semibold text-white bg-maroon-700 hover:bg-maroon-800 rounded-xl">Simpan Data</button>
         </div>
       </form>
     </div>
   </div>
 
-
-  <!-- ========================================== -->
-  <!-- MODAL 2: TAMBAH / EDIT PERIZINAN           -->
-  <!-- ========================================== -->
-  <div id="modal-perizinan" class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-slate-900/60 backdrop-blur-xs">
+  <!-- MODAL PERIZINAN -->
+  <div id="modal-perizinan" class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-slate-900/60">
     <div class="bg-white rounded-2xl shadow-2xl w-full max-w-lg overflow-hidden">
       <div class="islamic-pattern px-6 py-4 text-white flex items-center justify-between">
         <h3 id="modal-perizinan-title" class="font-bold text-lg">Tambah Perizinan Santri</h3>
-        <button onclick="closeModal('modal-perizinan')" class="text-rose-200 hover:text-white p-1">
-          <i class="fa-solid fa-xmark text-lg"></i>
-        </button>
+        <button onclick="closeModal('modal-perizinan')" class="text-rose-200 hover:text-white p-1"><i class="fa-solid fa-xmark text-lg"></i></button>
       </div>
-      <form id="form-perizinan" onsubmit="savePerizinan(event)" class="p-6 space-y-4">
+      <form onsubmit="savePerizinan(event)" class="p-6 space-y-4">
         <input type="hidden" id="izin-id">
-
         <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
           <div class="sm:col-span-2">
-            <label class="block text-xs font-semibold text-slate-700 mb-1.5">Nama Santri <span class="text-red-500">*</span></label>
-            <input type="text" id="izin-nama" required placeholder="Contoh: Ahmad Zaki" class="w-full px-3.5 py-2.5 text-sm border border-slate-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-maroon-500/30 focus:border-maroon-600">
+            <label class="block text-xs font-semibold text-slate-700 mb-1.5">Nama Santri *</label>
+            <input type="text" id="izin-nama" required placeholder="Nama lengkap santri" class="w-full px-3.5 py-2.5 text-sm border border-slate-300 rounded-xl">
           </div>
           <div>
-            <label class="block text-xs font-semibold text-slate-700 mb-1.5">Kelas <span class="text-red-500">*</span></label>
-            <input type="text" id="izin-kelas" list="daftar-kelas" required placeholder="Pilih/ketik..." class="w-full px-3.5 py-2.5 text-sm border border-slate-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-maroon-500/30 focus:border-maroon-600">
+            <label class="block text-xs font-semibold text-slate-700 mb-1.5">Kelas *</label>
+            <input type="text" id="izin-kelas" required placeholder="Contoh: 3 KMI" class="w-full px-3.5 py-2.5 text-sm border border-slate-300 rounded-xl">
           </div>
         </div>
-
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div>
-            <label class="block text-xs font-semibold text-slate-700 mb-1.5">Hari / Tgl / Waktu Keluar <span class="text-red-500">*</span></label>
-            <input type="datetime-local" id="izin-keluar" required class="w-full px-3.5 py-2.5 text-sm border border-slate-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-maroon-500/30 focus:border-maroon-600">
+            <label class="block text-xs font-semibold text-slate-700 mb-1.5">Waktu Keluar Pondok *</label>
+            <input type="datetime-local" id="izin-keluar" required class="w-full px-3.5 py-2.5 text-sm border border-slate-300 rounded-xl">
           </div>
           <div>
-            <label class="block text-xs font-semibold text-slate-700 mb-1.5">Batas Kembali ke Pondok <span class="text-red-500">*</span></label>
-            <input type="datetime-local" id="izin-batas" required class="w-full px-3.5 py-2.5 text-sm border border-slate-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-maroon-500/30 focus:border-maroon-600">
+            <label class="block text-xs font-semibold text-slate-700 mb-1.5">Batas Kembali ke Pondok *</label>
+            <input type="datetime-local" id="izin-batas" required class="w-full px-3.5 py-2.5 text-sm border border-slate-300 rounded-xl">
           </div>
         </div>
-
         <div>
-          <label class="block text-xs font-semibold text-slate-700 mb-1.5">Tujuan Keluar <span class="text-red-500">*</span></label>
-          <input type="text" id="izin-tujuan" required placeholder="Contoh: Berobat ke Puskesmas / Pulang menjenguk orang tua sakit" class="w-full px-3.5 py-2.5 text-sm border border-slate-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-maroon-500/30 focus:border-maroon-600">
+          <label class="block text-xs font-semibold text-slate-700 mb-1.5">Tujuan Izin *</label>
+          <input type="text" id="izin-tujuan" required placeholder="Contoh: Berobat ke klinik / Dijemput orang tua" class="w-full px-3.5 py-2.5 text-sm border border-slate-300 rounded-xl">
         </div>
-
         <div>
           <label class="block text-xs font-semibold text-slate-700 mb-1.5">Status Kehadiran</label>
-          <select id="izin-status" class="w-full px-3.5 py-2.5 text-sm border border-slate-300 rounded-xl bg-white focus:outline-none focus:ring-2 focus:ring-maroon-500/30 focus:border-maroon-600">
-            <option value="Sedang Keluar">Sedang Keluar (Otomatis cek keterlambatan)</option>
+          <select id="izin-status" class="w-full px-3.5 py-2.5 text-sm border border-slate-300 rounded-xl bg-white font-medium">
+            <option value="Sedang Keluar">Sedang Keluar</option>
             <option value="Sudah Kembali">Sudah Kembali ke Pondok</option>
           </select>
         </div>
-
-        <div class="pt-3 flex items-center justify-end gap-2.5 border-t border-slate-100">
-          <button type="button" onclick="closeModal('modal-perizinan')" class="px-4 py-2.5 text-sm font-medium text-slate-600 hover:bg-slate-100 rounded-xl transition">Batal</button>
-          <button type="submit" class="px-5 py-2.5 text-sm font-semibold bg-amber-500 hover:bg-amber-600 text-slate-950 rounded-xl shadow-xs transition">Simpan Perizinan</button>
+        <div class="pt-3 flex justify-end gap-2.5 border-t border-slate-100">
+          <button type="button" onclick="closeModal('modal-perizinan')" class="px-4 py-2 text-sm font-medium text-slate-600 bg-slate-100 rounded-xl">Batal</button>
+          <button type="submit" class="px-5 py-2 text-sm font-semibold text-slate-950 bg-amber-500 hover:bg-amber-600 rounded-xl">Simpan Perizinan</button>
         </div>
       </form>
     </div>
   </div>
 
-
-  <!-- ========================================== -->
-  <!-- MODAL 3: EDIT TENTANG PONDOK               -->
-  <!-- ========================================== -->
-  <div id="modal-pondok" class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-slate-900/60 backdrop-blur-xs">
+  <!-- MODAL EDIT PROFIL PONDOK -->
+  <div id="modal-pondok" class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-slate-900/60">
     <div class="bg-white rounded-2xl shadow-2xl w-full max-w-lg overflow-hidden">
       <div class="islamic-pattern px-6 py-4 text-white flex items-center justify-between">
         <h3 class="font-bold text-lg">Edit Profil Pondok</h3>
-        <button onclick="closeModal('modal-pondok')" class="text-rose-200 hover:text-white p-1">
-          <i class="fa-solid fa-xmark text-lg"></i>
-        </button>
+        <button onclick="closeModal('modal-pondok')" class="text-rose-200 hover:text-white p-1"><i class="fa-solid fa-xmark text-lg"></i></button>
       </div>
-      <form onsubmit="savePondok(event)" class="p-6 space-y-4">
-        <!-- Upload / Ganti Logo Pondok -->
-        <div class="p-3.5 rounded-xl bg-slate-50 border border-slate-200 flex items-center justify-between gap-3">
-          <div class="flex items-center gap-3">
-            <div id="preview-logo-modal" class="w-12 h-12 rounded-full bg-white border border-slate-200 p-0.5 flex items-center justify-center overflow-hidden shrink-0"></div>
-            <div>
-              <span class="block text-xs font-bold text-slate-800">Logo Pondok / Lembaga</span>
-              <span class="block text-[11px] text-slate-500">Default: dmn.jpeg (atau unggah gambar baru)</span>
-            </div>
-          </div>
-          <div class="flex items-center gap-1.5">
-            <label class="cursor-pointer px-3 py-1.5 bg-maroon-700 hover:bg-maroon-800 text-white text-xs font-semibold rounded-lg transition">
-              <i class="fa-solid fa-upload mr-1"></i> Pilih File
-              <input type="file" id="edit-pondok-logo-file" accept="image/*" onchange="handleLogoUpload(event)" class="hidden">
-            </label>
-            <button type="button" onclick="resetDefaultLogo()" title="Gunakan dmn.jpeg" class="px-2.5 py-1.5 bg-slate-200 hover:bg-slate-300 text-slate-700 text-xs font-semibold rounded-lg transition">
-              Reset
-            </button>
-          </div>
-        </div>
-
-        <div>
-          <label class="block text-xs font-semibold text-slate-700 mb-1">Nama Pondok Pesantren</label>
-          <input type="text" id="edit-pondok-nama" required class="w-full px-3.5 py-2 text-sm border border-slate-300 rounded-xl">
-        </div>
-        <div>
-          <label class="block text-xs font-semibold text-slate-700 mb-1">Alamat Lengkap</label>
-          <input type="text" id="edit-pondok-alamat" required class="w-full px-3.5 py-2 text-sm border border-slate-300 rounded-xl">
-        </div>
-        <div>
-          <label class="block text-xs font-semibold text-slate-700 mb-1">Deskripsi Singkat Pondok</label>
-          <textarea id="edit-pondok-deskripsi" rows="3" required class="w-full px-3.5 py-2 text-sm border border-slate-300 rounded-xl"></textarea>
-        </div>
-        <div>
-          <label class="block text-xs font-semibold text-slate-700 mb-1">Motto / Semboyan Ri'ayah</label>
-          <input type="text" id="edit-pondok-motto" required class="w-full px-3.5 py-2 text-sm border border-slate-300 rounded-xl">
-        </div>
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-          <div>
-            <label class="block text-xs font-semibold text-slate-700 mb-1">Pimpinan / Pengasuh</label>
-            <input type="text" id="edit-pondok-pengasuh" required class="w-full px-3.5 py-2 text-sm border border-slate-300 rounded-xl">
-          </div>
-          <div>
-            <label class="block text-xs font-semibold text-slate-700 mb-1">Kontak Pos Ri'ayah</label>
-            <input type="text" id="edit-pondok-kontak" required class="w-full px-3.5 py-2 text-sm border border-slate-300 rounded-xl">
-          </div>
-        </div>
-        <div class="pt-3 flex justify-end gap-2 border-t border-slate-100">
-          <button type="button" onclick="closeModal('modal-pondok')" class="px-4 py-2 text-sm text-slate-600 hover:bg-slate-100 rounded-xl">Batal</button>
-          <button type="submit" class="px-5 py-2 text-sm font-semibold bg-maroon-700 hover:bg-maroon-800 text-white rounded-xl">Simpan Perubahan</button>
-        </div>
-      </form>
-    </div>
-  </div>
-
-
-  <!-- ========================================== -->
-  <!-- MODAL 4: TAMBAH / EDIT STRUKTUR RI'AYAH    -->
-  <!-- ========================================== -->
-  <div id="modal-struktur" class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-slate-900/60 backdrop-blur-xs">
-    <div class="bg-white rounded-2xl shadow-2xl w-full max-w-md overflow-hidden">
-      <div class="islamic-pattern px-6 py-4 text-white flex items-center justify-between">
-        <h3 id="modal-struktur-title" class="font-bold text-lg">Tambah Pengurus Ri'ayah</h3>
-        <button onclick="closeModal('modal-struktur')" class="text-rose-200 hover:text-white p-1">
-          <i class="fa-solid fa-xmark text-lg"></i>
-        </button>
-      </div>
-      <form onsubmit="saveStruktur(event)" class="p-6 space-y-4">
-        <input type="hidden" id="struktur-id">
-        <div>
-          <label class="block text-xs font-semibold text-slate-700 mb-1">Jabatan <span class="text-red-500">*</span></label>
-          <input type="text" id="struktur-jabatan" required placeholder="Contoh: Ketua Ri'ayah / Bagian Perizinan" class="w-full px-3.5 py-2.5 text-sm border border-slate-300 rounded-xl">
-        </div>
-        <div>
-          <label class="block text-xs font-semibold text-slate-700 mb-1">Nama Pengurus / Ustadz <span class="text-red-500">*</span></label>
-          <input type="text" id="struktur-nama" required placeholder="Contoh: Ust. Muhammad Ridwan" class="w-full px-3.5 py-2.5 text-sm border border-slate-300 rounded-xl">
-        </div>
-        <div>
-          <label class="block text-xs font-semibold text-slate-700 mb-1">Tugas Utama / Keterangan</label>
-          <input type="text" id="struktur-tugas" placeholder="Contoh: Koordinator keamanan gerbang & perizinan" class="w-full px-3.5 py-2.5 text-sm border border-slate-300 rounded-xl">
-        </div>
-        <div class="pt-3 flex justify-end gap-2 border-t border-slate-100">
-          <button type="button" onclick="closeModal('modal-struktur')" class="px-4 py-2 text-sm text-slate-600 hover:bg-slate-100 rounded-xl">Batal</button>
-          <button type="submit" class="px-5 py-2 text-sm font-semibold bg-maroon-700 hover:bg-maroon-800 text-white rounded-xl">Simpan</button>
-        </div>
-      </form>
-    </div>
-  </div>
-
-
-  <!-- ========================================== -->
-  <!-- MODAL 5: KONFIRMASI HAPUS / RESET          -->
-  <!-- ========================================== -->
-  <div id="modal-confirm" class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-slate-900/60 backdrop-blur-xs">
-    <div class="bg-white rounded-2xl shadow-2xl w-full max-w-sm p-6 text-center space-y-4">
-      <div class="w-14 h-14 rounded-full bg-red-100 text-red-600 flex items-center justify-center mx-auto text-2xl">
-        <i class="fa-solid fa-triangle-exclamation"></i>
-      </div>
-      <div>
-        <h3 id="confirm-title" class="font-bold text-lg text-slate-900">Konfirmasi Hapus</h3>
-        <p id="confirm-message" class="text-sm text-slate-500 mt-1">Apakah Anda yakin ingin menghapus data ini?</p>
-      </div>
-      <div class="flex items-center justify-center gap-3 pt-2">
-        <button onclick="closeModal('modal-confirm')" class="flex-1 py-2.5 text-sm font-medium text-slate-700 bg-slate-100 hover:bg-slate-200 rounded-xl transition">Batal</button>
-        <button id="confirm-yes-btn" class="flex-1 py-2.5 text-sm font-semibold text-white bg-red-600 hover:bg-red-700 rounded-xl transition">Ya, Lanjutkan</button>
-      </div>
-    </div>
-  </div>
-
-  <!-- Datalist Saran Kelas -->
-  <datalist id="daftar-kelas">
-    <option value="1 SMP">
-    <option value="2 SMP">
-    <option value="3 SMP">
-    <option value="1 SMA">
-    <option value="2 SMA">
-    <option value="3 SMA">
-    <option value="1 KMI">
-    <option value="2 KMI">
-    <option value="3 KMI">
-    <option value="Takhassus">
-  </datalist>
-
-  <script>
-    // ==========================================
-    // 1. HELPER TANGGAL RELATIF UNTUK DATA CONTOH
-    // ==========================================
-    function getRelativeDate(daysOffset) {
-      const d = new Date();
-      d.setDate(d.getDate() + daysOffset);
-      return d.toISOString().split('T')[0];
-    }
-
-    function getRelativeDateTime(hoursOffset) {
-      const d = new Date();
-      d.setHours(d.getHours() + hoursOffset);
-      const pad = n => String(n).padStart(2, '0');
-      return `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}T${pad(d.getHours())}:${pad(d.getMinutes())}`;
-    }
-
-    // ==========================================
-    // 2. DATA DEFAULT & KONFIGURASI STORAGE
-    // ==========================================
-    const STORAGE_KEYS = {
-      PONDOK: 'riayah_darul_iman_pondok_v1',
-      STRUKTUR: 'riayah_darul_iman_struktur_v1',
-      PELANGGARAN: 'riayah_darul_iman_pelanggaran_v1',
-      PERIZINAN: 'riayah_darul_iman_perizinan_v1'
-    };
-
-    const DEFAULT_LOGO_HTML = "<img src='dmn.jpeg' alt='Logo Pondok' class='w-full h-full object-contain rounded-full bg-white p-0.5' onerror=\"this.src='https://placehold.co/100x100/800000/ffffff?text=RI'\">";
-
-    const defaultPondok = {
-      nama: "Pondok Pesantren Darul Iman",
-      alamat: "Jl. Raya Pesantren Darul Iman, Pandeglang, Banten",
-      deskripsi: "Lembaga pendidikan Islam terpadu yang membina santri agar berakhlakul karimah, disiplin, mandiri, serta berpegang teguh pada nilai-nilai keislaman dan keilmuan.",
-      motto: "Disiplin adalah cermin akhlak santri dan kunci keberhasilan menuntut ilmu.",
-      pengasuh: "KH. Ahmad Fauzi, Lc., M.Ag.",
-      kontak: "0812-3456-7890 (Pos Ri'ayah)",
-      logoCustom: ""
-    };
-
-    const defaultStruktur = [
-      {
-        id: 'str-1',
-        jabatan: 'Ketua Ri\'ayah (Keamanan)',
-        nama: 'Ust. Muhammad Ridwan',
-        tugas: 'Penanggung jawab utama ketertiban, keamanan lingkungan, dan kedisiplinan santri.'
-      },
-      {
-        id: 'str-2',
-        jabatan: 'Wakil Ketua Ri\'ayah',
-        nama: 'Ust. Abdul Aziz Al-Hafidz',
-        tugas: 'Koordinator piket harian, patroli malam, dan pembinaan santri.'
-      },
-      {
-        id: 'str-3',
-        jabatan: 'Sekretaris & Administrasi',
-        nama: 'Ust. Fajar Shodiq',
-        tugas: 'Pencatatan arsip pelanggaran, rekap takzir, dan pelaporan bulanan.'
-      },
-      {
-        id: 'str-4',
-        jabatan: 'Koordinator Perizinan',
-        nama: 'Ust. Hasan Basri',
-        tugas: 'Verifikasi surat izin keluar pondok dan pemantauan waktu kembali santri.'
-      }
-    ];
-
-    const defaultPelanggaran = [
-      {
-        id: 'pel-1',
-        tanggal: getRelativeDate(0),
-        nama: 'Fauzan Al-Ghifari',
-        kelas: '2 SMP',
-        jenis: 'Ringan',
-        sanksi: 'Membersihkan serambi masjid & hafalan 15 mufrodat',
-        keterangan: 'Terlambat mengikuti shalat Subuh berjamaah di masjid tanpa uzur.'
-      },
-      {
-        id: 'pel-2',
-        tanggal: getRelativeDate(-2),
-        nama: 'Rizky Ramadhan',
-        kelas: '1 SMA',
-        jenis: 'Sedang',
-        sanksi: 'Berdiri membaca Al-Qur\'an 1 Juz di depan kantor Ri\'ayah',
-        keterangan: 'Tidak mengikuti kegiatan wajib muhadharah malam Jumat.'
-      },
-      {
-        id: 'pel-3',
-        tanggal: getRelativeDate(-4),
-        nama: 'Dimas Pratama',
-        kelas: '3 SMP',
-        jenis: 'Berat',
-        sanksi: 'Pemanggilan wali santri, surat peringatan (SP-1), dan takzir khusus',
-        keterangan: 'Keluar area pondok tanpa izin resmi dari bagian perizinan Ri\'ayah.'
-      }
-    ];
-
-    const defaultPerizinan = [
-      {
-        id: 'izin-1',
-        nama: 'Ahmad Zaki Mubaroq',
-        kelas: '3 SMA',
-        waktuKeluar: getRelativeDateTime(-2),
-        batasKembali: getRelativeDateTime(3),
-        tujuan: 'Berobat ke Klinik Pratama / Cek kesehatan gigi',
-        status: 'Sedang Keluar'
-      },
-      {
-        id: 'izin-2',
-        nama: 'Naufal Hakim',
-        kelas: '2 SMA',
-        waktuKeluar: getRelativeDateTime(-6),
-        batasKembali: getRelativeDateTime(-1),
-        tujuan: 'Menghadiri acara pernikahan kakak kandung',
-        status: 'Sedang Keluar'
-      },
-      {
-        id: 'izin-3',
-        nama: 'Ilham Saputra',
-        kelas: '1 SMP',
-        waktuKeluar: getRelativeDateTime(-24),
-        batasKembali: getRelativeDateTime(-18),
-        tujuan: 'Mengambil perlengkapan kitab & seragam bersama orang tua',
-        status: 'Sudah Kembali'
-      }
-    ];
-
-    let tempLogoDataUrl = "";
-
-    let state = {
-      pondok: {},
-      struktur: [],
-      pelanggaran: [],
-      perizinan: [],
-      filterPelanggaran: 'Semua',
-      filterPerizinan: 'Semua'
-    };
-
-    // ==========================================
-    // 3. INISIALISASI & PENYIMPANAN LOKAL
-    // ==========================================
-    function loadData() {
-      try {
-        const savedPondok = localStorage.getItem(STORAGE_KEYS.PONDOK);
-        const savedStruktur = localStorage.getItem(STORAGE_KEYS.STRUKTUR);
-        const savedPelanggaran = localStorage.getItem(STORAGE_KEYS.PELANGGARAN);
-        const savedPerizinan = localStorage.getItem(STORAGE_KEYS.PERIZINAN);
-
-        state.pondok = savedPondok ? JSON.parse(savedPondok) : { ...defaultPondok };
-        state.struktur = savedStruktur ? JSON.parse(savedStruktur) : [...defaultStruktur];
-        state.pelanggaran = savedPelanggaran ? JSON.parse(savedPelanggaran) : [...defaultPelanggaran];
-        state.perizinan = savedPerizinan ? JSON.parse(savedPerizinan) : [...defaultPerizinan];
-
-        if (!savedPondok) saveToStorage();
-      } catch (err) {
-        console.error('Gagal memuat localStorage:', err);
-        state.pondok = { ...defaultPondok };
-        state.struktur = [...defaultStruktur];
-        state.pelanggaran = [...defaultPelanggaran];
-        state.perizinan = [...defaultPerizinan];
-      }
-    }
-
-    function saveToStorage() {
-      try {
-        localStorage.setItem(STORAGE_KEYS.PONDOK, JSON.stringify(state.pondok));
-        localStorage.setItem(STORAGE_KEYS.STRUKTUR, JSON.stringify(state.struktur));
-        localStorage.setItem(STORAGE_KEYS.PELANGGARAN, JSON.stringify(state.pelanggaran));
-        localStorage.setItem(STORAGE_KEYS.PERIZINAN, JSON.stringify(state.perizinan));
-      } catch (err) {
-        console.error('Gagal menyimpan ke localStorage:', err);
-        showToast('Peringatan: Penyimpanan browser penuh.', 'info');
-      }
-      updateAllUI();
-    }
-
-    function confirmResetData() {
-      state.pondok = { ...defaultPondok };
-      state.struktur = [...defaultStruktur];
-      state.pelanggaran = [...defaultPelanggaran];
-      state.perizinan = [...defaultPerizinan];
-      saveToStorage();
-      showToast('Data berhasil dikembalikan ke pengaturan awal.', 'success');
-    }
-
-    function openResetModal() {
-      showConfirm(
-        'Reset Data ke Awal?',
-        'Semua data yang Anda input akan dikembalikan ke data contoh awal. Lanjutkan?',
-        confirmResetData
-      );
-    }
-
-    // ==========================================
-    // 4. NAVIGASI & FORMATTER TANGGAL INDONESIA
-    // ==========================================
-    function switchTab(tabName) {
-      ['dashboard', 'pelanggaran', 'perizinan'].forEach(t => {
-        const viewEl = document.getElementById(`view-${t}`);
-        if (viewEl) viewEl.classList.add('hidden');
-        const navBtn = document.getElementById(`nav-${t}`);
-        if (navBtn) {
-          navBtn.className = 'nav-item w-full flex items-center justify-between px-4 py-3.5 rounded-xl text-left font-medium text-rose-100 hover:bg-maroon-800/50 hover:text-white transition-all';
-          const icon = navBtn.querySelector('i');
-          if (icon) icon.classList.replace('text-amber-400', 'text-rose-200');
-        }
-      });
-
-      const targetView = document.getElementById(`view-${tabName}`);
-      if (targetView) targetView.classList.remove('hidden');
-
-      const activeBtn = document.getElementById(`nav-${tabName}`);
-      if (activeBtn) {
-        activeBtn.className = 'nav-item w-full flex items-center justify-between px-4 py-3.5 rounded-xl text-left font-medium transition-all bg-maroon-800/90 text-white border border-amber-400/30 shadow-sm';
-        const activeIcon = activeBtn.querySelector('i');
-        if (activeIcon) activeIcon.classList.replace('text-rose-200', 'text-amber-400');
-      }
-
-      const sidebar = document.getElementById('sidebar');
-      if (sidebar && !sidebar.classList.contains('-translate-x-full') && window.innerWidth < 768) {
-        toggleMobileMenu();
-      }
-    }
-
-    function toggleMobileMenu() {
-      const sidebar = document.getElementById('sidebar');
-      const overlay = document.getElementById('sidebar-overlay');
-      if (sidebar) sidebar.classList.toggle('-translate-x-full');
-      if (overlay) overlay.classList.toggle('hidden');
-    }
-
-    function formatTanggalIndo(dateStr) {
-      if (!dateStr) return '-';
-      const date = new Date(dateStr);
-      return date.toLocaleDateString('id-ID', {
-        weekday: 'short',
-        day: 'numeric',
-        month: 'short',
-        year: 'numeric'
-      });
-    }
-
-    function formatDateTimeIndo(dateTimeStr) {
-      if (!dateTimeStr) return '-';
-      const date = new Date(dateTimeStr);
-      const tgl = date.toLocaleDateString('id-ID', {
-        weekday: 'long',
-        day: 'numeric',
-        month: 'short',
-        year: 'numeric'
-      });
-      const jam = date.toLocaleTimeString('id-ID', {
-        hour: '2-digit',
-        minute: '2-digit'
-      });
-      return `<div class="font-medium text-slate-800">${tgl}</div><div class="text-xs text-slate-500"><i class="fa-regular fa-clock mr-1"></i>Pukul ${jam} WIB</div>`;
-    }
-
-    function updateClock() {
-      const now = new Date();
-      const str = now.toLocaleDateString('id-ID', { weekday: 'short', day: 'numeric', month: 'short' }) + ' • ' +
-                  now.toLocaleTimeString('id-ID', { hour: '2-digit', minute: '2-digit', second: '2-digit' });
-      const el = document.getElementById('live-clock');
-      if (el) el.textContent = str;
-    }
-
-    // ==========================================
-    // 5. LOGIKA STATUS PERIZINAN
-    // ==========================================
-    function getComputedIzinStatus(item) {
-      if (item.status === 'Sudah Kembali') return 'Sudah Kembali';
-      const now = new Date();
-      const batas = new Date(item.batasKembali);
-      if (now > batas) return 'Terlambat';
-      return 'Sedang Keluar';
-    }
-
-    // ==========================================
-    // 6. RENDER DASHBOARD, PELANGGARAN & PERIZINAN
-    // ==========================================
-    function updateAllUI() {
-      renderDashboard();
-      renderPelanggaran();
-      renderPerizinan();
-    }
-
-    function renderDashboard() {
-      // Update Logo Pondok (Default: dmn.jpeg atau custom upload)
-      const logoHTML = state.pondok.logoCustom
-        ? `<img src="${state.pondok.logoCustom}" alt="Logo Pondok" class="w-full h-full object-contain rounded-full bg-white p-0.5">`
-        : DEFAULT_LOGO_HTML;
-      document.querySelectorAll('.logo-pondok-container').forEach(el => {
-        el.innerHTML = logoHTML;
-      });
-
-      // Update Profil Pondok
-      document.getElementById('pondok-nama').textContent = state.pondok.nama || defaultPondok.nama;
-      document.getElementById('pondok-alamat').querySelector('span').textContent = state.pondok.alamat || defaultPondok.alamat;
-      document.getElementById('pondok-deskripsi').textContent = state.pondok.deskripsi || defaultPondok.deskripsi;
-      document.getElementById('pondok-motto').textContent = state.pondok.motto || defaultPondok.motto;
-      document.getElementById('pondok-pengasuh').textContent = state.pondok.pengasuh || defaultPondok.pengasuh;
-      document.getElementById('pondok-kontak').textContent = state.pondok.kontak || defaultPondok.kontak;
-
-      // Update Statistik
-      const totalPel = state.pelanggaran.length;
-      const beratPel = state.pelanggaran.filter(p => p.jenis === 'Berat').length;
-      
-      let sedangKeluar = 0;
-      let terlambat = 0;
-      state.perizinan.forEach(izin => {
-        const st = getComputedIzinStatus(izin);
-        if (st === 'Sedang Keluar') sedangKeluar++;
-        if (st === 'Terlambat') {
-          sedangKeluar++;
-          terlambat++;
-        }
-      });
-
-      document.getElementById('stat-total-pelanggaran').textContent = totalPel;
-      document.getElementById('stat-pelanggaran-berat').textContent = beratPel;
-      document.getElementById('stat-sedang-keluar').textContent = sedangKeluar;
-      document.getElementById('stat-terlambat').textContent = terlambat;
-
-      document.getElementById('badge-pelanggaran-count').textContent = totalPel;
-      document.getElementById('badge-perizinan-count').textContent = sedangKeluar;
-
-      // Render Struktur Ri'ayah
-      const strukturContainer = document.getElementById('struktur-list');
-      if (state.struktur.length === 0) {
-        strukturContainer.innerHTML = `<p class="text-sm text-slate-400 col-span-2 text-center py-6">Belum ada data struktur pengurus.</p>`;
-      } else {
-        strukturContainer.innerHTML = state.struktur.map((item, index) => `
-          <div class="p-4 rounded-xl border ${index === 0 ? 'bg-maroon-50/70 border-maroon-200' : 'bg-slate-50/70 border-slate-200/80'} hover:shadow-xs transition group relative">
-            <div class="flex items-start justify-between gap-2">
-              <div class="flex items-center gap-3">
-                <div class="w-10 h-10 rounded-full ${index === 0 ? 'bg-maroon-700 text-amber-300' : 'bg-white text-maroon-700 border border-slate-200'} flex items-center justify-center font-bold text-sm shrink-0">
-                  <i class="fa-solid ${index === 0 ? 'fa-user-tie' : 'fa-user-shield'}"></i>
-                </div>
-                <div>
-                  <span class="text-[11px] font-bold uppercase tracking-wider ${index === 0 ? 'text-maroon-700' : 'text-amber-600'} block">${escapeHTML(item.jabatan)}</span>
-                  <h4 class="font-bold text-slate-900 text-sm mt-0.5">${escapeHTML(item.nama)}</h4>
-                </div>
-              </div>
-              <div class="flex items-center gap-1 opacity-100 sm:opacity-0 group-hover:opacity-100 transition-opacity">
-                <button onclick="openStrukturModal('${item.id}')" title="Edit" class="p-1.5 text-slate-400 hover:text-maroon-700 rounded-lg hover:bg-white">
-                  <i class="fa-solid fa-pen text-xs"></i>
-                </button>
-                <button onclick="deleteStruktur('${item.id}')" title="Hapus" class="p-1.5 text-slate-400 hover:text-red-600 rounded-lg hover:bg-white">
-                  <i class="fa-solid fa-trash text-xs"></i>
-                </button>
-              </div>
-            </div>
-            ${item.tugas ? `<p class="text-xs text-slate-500 mt-2.5 pl-13 border-t border-slate-200/60 pt-2">${escapeHTML(item.tugas)}</p>` : ''}
-          </div>
-        `).join('');
-      }
-    }
-
-    function renderPelanggaran() {
-      const searchEl = document.getElementById('search-pelanggaran');
-      const query = searchEl ? searchEl.value.toLowerCase() : '';
-      const filter = state.filterPelanggaran;
-
-      const filtered = state.pelanggaran
-        .filter(item => {
-          const matchFilter = filter === 'Semua' || item.jenis === filter;
-          const matchQuery = item.nama.toLowerCase().includes(query) ||
-                             item.kelas.toLowerCase().includes(query) ||
-                             item.sanksi.toLowerCase().includes(query) ||
-                             (item.keterangan && item.keterangan.toLowerCase().includes(query));
-          return matchFilter && matchQuery;
-        })
-        .sort((a, b) => new Date(b.tanggal) - new Date(a.tanggal));
-
-      const tbody = document.getElementById('tbody-pelanggaran');
-      const emptyEl = document.getElementById('empty-pelanggaran');
-
-      if (filtered.length === 0) {
-        tbody.innerHTML = '';
-        emptyEl.classList.remove('hidden');
-        return;
-      }
-
-      emptyEl.classList.add('hidden');
-      tbody.innerHTML = filtered.map(item => {
-        let badgeStyle = 'bg-amber-100 text-amber-800 border-amber-200';
-        let dotColor = 'bg-amber-500';
-        if (item.jenis === 'Sedang') {
-          badgeStyle = 'bg-orange-100 text-orange-800 border-orange-200';
-          dotColor = 'bg-orange-500';
-        } else if (item.jenis === 'Berat') {
-          badgeStyle = 'bg-red-100 text-red-800 border-red-200';
-          dotColor = 'bg-red-600';
-        }
-
-        return `
-          <tr class="hover:bg-slate-50/80 transition">
-            <td class="py-3.5 px-5 whitespace-nowrap text-slate-600 font-medium">${formatTanggalIndo(item.tanggal)}</td>
-            <td class="py-3.5 px-5 font-bold text-slate-900">${escapeHTML(item.nama)}</td>
-            <td class="py-3.5 px-5 whitespace-nowrap">
-              <span class="px-2.5 py-1 rounded-md bg-slate-100 text-slate-700 text-xs font-semibold">${escapeHTML(item.kelas)}</span>
-            </td>
-            <td class="py-3.5 px-5 whitespace-nowrap">
-              <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold border ${badgeStyle}">
-                <span class="w-1.5 h-1.5 rounded-full ${dotColor}"></span>
-                ${escapeHTML(item.jenis)}
-              </span>
-            </td>
-            <td class="py-3.5 px-5 text-slate-700 font-medium max-w-xs">${escapeHTML(item.sanksi)}</td>
-            <td class="py-3.5 px-5 text-slate-500 text-xs max-w-xs">${escapeHTML(item.keterangan || '-')}</td>
-            <td class="py-3.5 px-5 whitespace-nowrap text-right">
-              <div class="inline-flex items-center gap-1">
-                <button onclick="editPelanggaran('${item.id}')" title="Edit" class="p-2 text-slate-500 hover:text-maroon-700 hover:bg-maroon-50 rounded-lg transition">
-                  <i class="fa-solid fa-pen-to-square"></i>
-                </button>
-                <button onclick="deletePelanggaran('${item.id}')" title="Hapus" class="p-2 text-slate-500 hover:text-red-600 hover:bg-red-50 rounded-lg transition">
-                  <i class="fa-solid fa-trash-can"></i>
-                </button>
-              </div>
-            </td>
-          </tr>
-        `;
-      }).join('');
-    }
-
-    function renderPerizinan() {
-      const searchEl = document.getElementById('search-perizinan');
-      const query = searchEl ? searchEl.value.toLowerCase() : '';
-      const filter = state.filterPerizinan;
-
-      const filtered = state.perizinan
-        .map(item => ({ ...item, computedStatus: getComputedIzinStatus(item) }))
-        .filter(item => {
-          const matchFilter = filter === 'Semua' || item.computedStatus === filter;
-          const matchQuery = item.nama.toLowerCase().includes(query) ||
-                             item.kelas.toLowerCase().includes(query) ||
-                             item.tujuan.toLowerCase().includes(query);
-          return matchFilter && matchQuery;
-        })
-        .sort((a, b) => new Date(b.waktuKeluar) - new Date(a.waktuKeluar));
-
-      const tbody = document.getElementById('tbody-perizinan');
-      const emptyEl = document.getElementById('empty-perizinan');
-
-      if (filtered.length === 0) {
-        tbody.innerHTML = '';
-        emptyEl.classList.remove('hidden');
-        return;
-      }
-
-      emptyEl.classList.add('hidden');
-      tbody.innerHTML = filtered.map(item => {
-        const st = item.computedStatus;
-        let statusBadge = '';
-        if (st === 'Sudah Kembali') {
-          statusBadge = `<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-emerald-100 text-emerald-800 border border-emerald-200"><i class="fa-solid fa-check-circle"></i> Sudah Kembali</span>`;
-        } else if (st === 'Terlambat') {
-          statusBadge = `<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-red-100 text-red-800 border border-red-200 animate-pulse"><i class="fa-solid fa-clock"></i> Terlambat</span>`;
-        } else {
-          statusBadge = `<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-amber-100 text-amber-800 border border-amber-200"><i class="fa-solid fa-person-walking-arrow-right"></i> Sedang Keluar</span>`;
-        }
-
-        return `
-          <tr class="hover:bg-slate-50/80 transition">
-            <td class="py-3.5 px-5">
-              <div class="font-bold text-slate-900">${escapeHTML(item.nama)}</div>
-              <span class="inline-block mt-1 px-2 py-0.5 rounded bg-slate-100 text-slate-600 text-xs font-semibold">${escapeHTML(item.kelas)}</span>
-            </td>
-            <td class="py-3.5 px-5 whitespace-nowrap">${formatDateTimeIndo(item.waktuKeluar)}</td>
-            <td class="py-3.5 px-5 whitespace-nowrap">${formatDateTimeIndo(item.batasKembali)}</td>
-            <td class="py-3.5 px-5 text-slate-700 font-medium max-w-xs">${escapeHTML(item.tujuan)}</td>
-            <td class="py-3.5 px-5 whitespace-nowrap">${statusBadge}</td>
-            <td class="py-3.5 px-5 whitespace-nowrap text-right">
-              <div class="inline-flex items-center gap-1.5">
-                ${st !== 'Sudah Kembali' ? `
-                  <button onclick="tandaiKembali('${item.id}')" title="Tandai Sudah Kembali" class="px-2.5 py-1.5 bg-maroon-700 hover:bg-maroon-800 text-white text-xs font-semibold rounded-lg transition flex items-center gap-1 shadow-2xs">
-                    <i class="fa-solid fa-check"></i> Kembali
-                  </button>
-                ` : ''}
-                <button onclick="editPerizinan('${item.id}')" title="Edit" class="p-2 text-slate-500 hover:text-maroon-700 hover:bg-maroon-50 rounded-lg transition">
-                  <i class="fa-solid fa-pen-to-square"></i>
-                </button>
-                <button onclick="deletePerizinan('${item.id}')" title="Hapus" class="p-2 text-slate-500 hover:text-red-600 hover:bg-red-50 rounded-lg transition">
-                  <i class="fa-solid fa-trash-can"></i>
-                </button>
-              </div>
-            </td>
-          </tr>
-        `;
-      }).join('');
-    }
-
-    // ==========================================
-    // 7. FILTER HANDLERS
-    // ==========================================
-    function setFilterPelanggaran(jenis) {
-      state.filterPelanggaran = jenis;
-      document.querySelectorAll('.filter-pel-btn').forEach(btn => {
-        btn.className = 'filter-pel-btn px-3 py-1.5 rounded-lg text-xs font-semibold bg-slate-100 text-slate-600 hover:bg-slate-200 transition';
-      });
-      const active = document.getElementById(`filter-pel-${jenis}`);
-      if (active) active.className = 'filter-pel-btn px-3 py-1.5 rounded-lg text-xs font-semibold bg-maroon-700 text-white transition';
-      renderPelanggaran();
-    }
-
-    function setFilterPerizinan(status) {
-      state.filterPerizinan = status;
-      document.querySelectorAll('.filter-izin-btn').forEach(btn => {
-        btn.className = 'filter-izin-btn px-3 py-1.5 rounded-lg text-xs font-semibold bg-slate-100 text-slate-600 hover:bg-slate-200 transition';
-      });
-      const active = document.getElementById(`filter-izin-${status}`);
-      if (active) active.className = 'filter-izin-btn px-3 py-1.5 rounded-lg text-xs font-semibold bg-maroon-700 text-white transition';
-      renderPerizinan();
-    }
-
-    // ==========================================
-    // 8. CRUD: PELANGGARAN SANTRI
-    // ==========================================
-    function openPelanggaranModal(id = null) {
-      const form = document.getElementById('form-pelanggaran');
-      form.reset();
-      if (id) {
-        const item = state.pelanggaran.find(p => p.id === id);
-        if (!item) return;
-        document.getElementById('modal-pelanggaran-title').textContent = 'Edit Data Pelanggaran';
-        document.getElementById('pel-id').value = item.id;
-        document.getElementById('pel-tanggal').value = item.tanggal;
-        document.getElementById('pel-nama').value = item.nama;
-        document.getElementById('pel-kelas').value = item.kelas;
-        document.getElementById('pel-jenis').value = item.jenis;
-        document.getElementById('pel-sanksi').value = item.sanksi;
-        document.getElementById('pel-keterangan').value = item.keterangan || '';
-      } else {
-        document.getElementById('modal-pelanggaran-title').textContent = 'Tambah Data Pelanggaran';
-        document.getElementById('pel-id').value = '';
-        document.getElementById('pel-tanggal').value = new Date().toISOString().split('T')[0];
-      }
-      openModal('modal-pelanggaran');
-    }
-
-    function editPelanggaran(id) {
-      openPelanggaranModal(id);
-    }
-
-    function savePelanggaran(e) {
-      e.preventDefault();
-      const id = document.getElementById('pel-id').value;
-      const payload = {
-        id: id || 'pel-' + Date.now(),
-        tanggal: document.getElementById('pel-tanggal').value,
-        nama: document.getElementById('pel-nama').value.trim(),
-        kelas: document.getElementById('pel-kelas').value.trim(),
-        jenis: document.getElementById('pel-jenis').value,
-        sanksi: document.getElementById('pel-sanksi').value.trim(),
-        keterangan: document.getElementById('pel-keterangan').value.trim()
-      };
-
-      if (id) {
-        const idx = state.pelanggaran.findIndex(p => p.id === id);
-        if (idx !== -1) state.pelanggaran[idx] = payload;
-        showToast('Data pelanggaran berhasil diperbarui.', 'success');
-      } else {
-        state.pelanggaran.unshift(payload);
-        showToast('Data pelanggaran santri berhasil ditambahkan.', 'success');
-      }
-
-      saveToStorage();
-      closeModal('modal-pelanggaran');
-    }
-
-    function deletePelanggaran(id) {
-      showConfirm('Hapus Pelanggaran?', 'Data pelanggaran ini akan dihapus permanen.', () => {
-        state.pelanggaran = state.pelanggaran.filter(p => p.id !== id);
-        saveToStorage();
-        showToast('Data pelanggaran dihapus.', 'info');
-      });
-    }
-
-    // ==========================================
-    // 9. CRUD: PERIZINAN SANTRI
-    // ==========================================
-    function openPerizinanModal(id = null) {
-      const form = document.getElementById('form-perizinan');
-      form.reset();
-      if (id) {
-        const item = state.perizinan.find(i => i.id === id);
-        if (!item) return;
-        document.getElementById('modal-perizinan-title').textContent = 'Edit Data Perizinan';
-        document.getElementById('izin-id').value = item.id;
-        document.getElementById('izin-nama').value = item.nama;
-        document.getElementById('izin-kelas').value = item.kelas;
-        document.getElementById('izin-keluar').value = item.waktuKeluar;
-        document.getElementById('izin-batas').value = item.batasKembali;
-        document.getElementById('izin-tujuan').value = item.tujuan;
-        document.getElementById('izin-status').value = item.status;
-      } else {
-        document.getElementById('modal-perizinan-title').textContent = 'Tambah Perizinan Santri';
-        document.getElementById('izin-id').value = '';
-        document.getElementById('izin-keluar').value = getRelativeDateTime(0);
-        document.getElementById('izin-batas').value = getRelativeDateTime(4);
-        document.getElementById('izin-status').value = 'Sedang Keluar';
-      }
-      openModal('modal-perizinan');
-    }
-
-    function editPerizinan(id) {
-      openPerizinanModal(id);
-    }
-
-    function savePerizinan(e) {
-      e.preventDefault();
-      const id = document.getElementById('izin-id').value;
-      const payload = {
-        id: id || 'izin-' + Date.now(),
-        nama: document.getElementById('izin-nama').value.trim(),
-        kelas: document.getElementById('izin-kelas').value.trim(),
-        waktuKeluar: document.getElementById('izin-keluar').value,
-        batasKembali: document.getElementById('izin-batas').value,
-        tujuan: document.getElementById('izin-tujuan').value.trim(),
-        status: document.getElementById('izin-status').value
-      };
-
-      if (id) {
-        const idx = state.perizinan.findIndex(i => i.id === id);
-        if (idx !== -1) state.perizinan[idx] = payload;
-        showToast('Data perizinan berhasil diperbarui.', 'success');
-      } else {
-        state.perizinan.unshift(payload);
-        showToast('Surat izin keluar berhasil dicatat.', 'success');
-      }
-
-      saveToStorage();
-      closeModal('modal-perizinan');
-    }
-
-    function tandaiKembali(id) {
-      const idx = state.perizinan.findIndex(i => i.id === id);
-      if (idx !== -1) {
-        state.perizinan[idx].status = 'Sudah Kembali';
-        saveToStorage();
-        showToast(`${state.perizinan[idx].nama} ditandai sudah kembali ke pondok.`, 'success');
-      }
-    }
-
-    function deletePerizinan(id) {
-      showConfirm('Hapus Data Perizinan?', 'Riwayat perizinan santri ini akan dihapus.', () => {
-        state.perizinan = state.perizinan.filter(i => i.id !== id);
-        saveToStorage();
-        showToast('Data perizinan dihapus.', 'info');
-      });
-    }
-
-    // ==========================================
-    // 10. CRUD: PROFIL PONDOK & STRUKTUR RI'AYAH
-    // ==========================================
-    function openPondokModal() {
-      tempLogoDataUrl = state.pondok.logoCustom || "";
-      updateModalLogoPreview();
-      document.getElementById('edit-pondok-nama').value = state.pondok.nama;
-      document.getElementById('edit-pondok-alamat').value = state.pondok.alamat;
-      document.getElementById('edit-pondok-deskripsi').value = state.pondok.deskripsi;
-      document.getElementById('edit-pondok-motto').value = state.pondok.motto;
-      document.getElementById('edit-pondok-pengasuh').value = state.pondok.pengasuh;
-      document.getElementById('edit-pondok-kontak').value = state.pondok.kontak;
-      openModal('modal-pondok');
-    }
-
-    function updateModalLogoPreview() {
-      const previewEl = document.getElementById('preview-logo-modal');
-      if (!previewEl) return;
-      previewEl.innerHTML = tempLogoDataUrl
-        ? `<img src="${tempLogoDataUrl}" alt="Preview Logo" class="w-full h-full object-contain rounded-full bg-white p-0.5">`
-        : DEFAULT_LOGO_HTML;
-    }
-
-    function handleLogoUpload(event) {
-      const file = event.target.files[0];
-      if (!file) return;
-      const reader = new FileReader();
-      reader.onload = function(e) {
-        const img = new Image();
-        img.onload = function() {
-          const canvas = document.createElement('canvas');
-          const maxSize = 256;
-          let width = img.width;
-          let height = img.height;
-          if (width > height) {
-            if (width > maxSize) { height *= maxSize / width; width = maxSize; }
-          } else {
-            if (height > maxSize) { width *= maxSize / height; height = maxSize; }
-          }
-          canvas.width = width;
-          canvas.height = height;
-          const ctx = canvas.getContext('2d');
-          ctx.drawImage(img, 0, 0, width, height);
-          tempLogoDataUrl = canvas.toDataURL('image/png');
-          updateModalLogoPreview();
-        };
-        img.src = e.target.result;
-      };
-      reader.readAsDataURL(file);
-    }
-
-    function resetDefaultLogo() {
-      tempLogoDataUrl = "";
-      const fileInput = document.getElementById('edit-pondok-logo-file');
-      if (fileInput) fileInput.value = "";
-      updateModalLogoPreview();
-    }
-
-    function savePondok(e) {
-      e.preventDefault();
-      state.pondok = {
-        nama: document.getElementById('edit-pondok-nama').value.trim(),
-        alamat: document.getElementById('edit-pondok-alamat').value.trim(),
-        deskripsi: document.getElementById('edit-pondok-deskripsi').value.trim(),
-        motto: document.getElementById('edit-pondok-motto').value.trim(),
-        pengasuh: document.getElementById('edit-pondok-pengasuh').value.trim(),
-        kontak: document.getElementById('edit-pondok-kontak').value.trim(),
-        logoCustom: tempLogoDataUrl
-      };
-      saveToStorage();
-      closeModal('modal-pondok');
-      showToast('Profil & logo pondok berhasil diperbarui.', 'success');
-    }
-
-    function openStrukturModal(id = null) {
-      if (id) {
-        const item = state.struktur.find(s => s.id === id);
-        if (!item) return;
-        document.getElementById('modal-struktur-title').textContent = 'Edit Pengurus Ri\'ayah';
-        document.getElementById('struktur-id').value = item.id;
-        document.getElementById('struktur-jabatan').value = item.jabatan;
-        document.getElementById('struktur-nama').value = item.nama;
-        document.getElementById('struktur-tugas').value = item.tugas || '';
-      } else {
-        document.getElementById('modal-struktur-title').textContent = 'Tambah Pengurus Ri\'ayah';
-        document.getElementById('struktur-id').value = '';
-        document.getElementById('struktur-jabatan').value = '';
-        document.getElementById('struktur-nama').value = '';
-        document.getElementById('struktur-tugas').value = '';
-      }
-      openModal('modal-struktur');
-    }
-
-    function saveStruktur(e) {
-      e.preventDefault();
-      const id = document.getElementById('struktur-id').value;
-      const payload = {
-        id: id || 'str-' + Date.now(),
-        jabatan: document.getElementById('struktur-jabatan').value.trim(),
-        nama: document.getElementById('struktur-nama').value.trim(),
-        tugas: document.getElementById('struktur-tugas').value.trim()
-      };
-
-      if (id) {
-        const idx = state.struktur.findIndex(s => s.id === id);
-        if (idx !== -1) state.struktur[idx] = payload;
-        showToast('Struktur pengurus diperbarui.', 'success');
-      } else {
-        state.struktur.push(payload);
-        showToast('Pengurus baru ditambahkan ke struktur.', 'success');
-      }
-
-      saveToStorage();
-      closeModal('modal-struktur');
-    }
-
-    function deleteStruktur(id) {
-      showConfirm('Hapus Pengurus?', 'Hapus anggota ini dari struktur kepengurusan Ri\'ayah?', () => {
-        state.struktur = state.struktur.filter(s => s.id !== id);
-        saveToStorage();
-        showToast('Pengurus dihapus dari struktur.', 'info');
-      });
-    }
-
-    // ==========================================
-    // 11. EKSPOR DATA KE CSV
-    // ==========================================
-    function downloadCSV(filename, rows) {
-      const csvContent = "data:text/csv;charset=utf-8,\uFEFF" + rows.map(e => e.map(cell => `"${String(cell || '').replace(/"/g, '""')}"`).join(",")).join("\n");
-      const encodedUri = encodeURI(csvContent);
-      const link = document.createElement("a");
-      link.setAttribute("href", encodedUri);
-      link.setAttribute("download", filename);
-      document.body.appendChild(link);
-      link.click();
-      document.body.removeChild(link);
-      showToast(`File ${filename} berhasil diunduh.`, 'success');
-    }
-
-    function exportPelanggaranCSV() {
-      const headers = ['Tanggal', 'Nama Santri', 'Kelas', 'Jenis Pelanggaran', 'Sanksi', 'Keterangan'];
-      const rows = state.pelanggaran.map(p => [p.tanggal, p.nama, p.kelas, p.jenis, p.sanksi, p.keterangan]);
-      downloadCSV(`Data_Pelanggaran_Riayah_${getRelativeDate(0)}.csv`, [headers, ...rows]);
-    }
-
-    function exportPerizinanCSV() {
-      const headers = ['Nama Santri', 'Kelas', 'Waktu Keluar', 'Batas Kembali', 'Tujuan', 'Status'];
-      const rows = state.perizinan.map(i => [i.nama, i.kelas, i.waktuKeluar.replace('T', ' '), i.batasKembali.replace('T', ' '), i.tujuan, getComputedIzinStatus(i)]);
-      downloadCSV(`Data_Perizinan_Riayah_${getRelativeDate(0)}.csv`, [headers, ...rows]);
-    }
-
-    // ==========================================
-    // 12. HELPER MODAL, TOAST & KEAMANAN XSS
-    // ==========================================
-    function openModal(id) {
-      const el = document.getElementById(id);
-      if (!el) return;
-      el.classList.remove('hidden');
-      el.classList.add('flex');
-    }
-
-    function closeModal(id) {
-      const el = document.getElementById(id);
-      if (!el) return;
-      el.classList.add('hidden');
-      el.classList.remove('flex');
-    }
-
-    function showConfirm(title, message, onConfirm) {
-      document.getElementById('confirm-title').textContent = title;
-      document.getElementById('confirm-message').textContent = message;
-      const yesBtn = document.getElementById('confirm-yes-btn');
-      yesBtn.onclick = () => {
-        closeModal('modal-confirm');
-        onConfirm();
-      };
-      openModal('modal-confirm');
-    }
-
-    function showToast(message, type = 'success') {
-      const container = document.getElementById('toast-container');
-      const toast = document.createElement('div');
-      const bg = type === 'success' ? 'bg-maroon-800 border-maroon-600' : 'bg-slate-800 border-slate-600';
-      const icon = type === 'success' ? 'fa-circle-check text-amber-400' : 'fa-circle-info text-rose-200';
-      
-      toast.className = `${bg} text-white px-4 py-3 rounded-xl shadow-lg border flex items-center gap-3 text-sm font-medium pointer-events-auto transition-all duration-300 translate-y-2 opacity-0`;
-      toast.innerHTML = `<i class="fa-solid ${icon}"></i><span>${escapeHTML(message)}</span>`;
-      
-      container.appendChild(toast);
-      requestAnimationFrame(() => {
-        toast.classList.remove('translate-y-2', 'opacity-0');
-      });
-
-      setTimeout(() => {
-        toast.classList.add('opacity-0', 'translate-y-2');
-        setTimeout(() => toast.remove(), 300);
-      }, 3000);
-    }
-
-    function escapeHTML(str) {
-      if (!str) return '';
-      return String(str)
-        .replace(/&/g, '&amp;')
-        .replace(/</g, '&lt;')
-        .replace(/>/g, '&gt;')
-        .replace(/"/g, '&quot;')
-        .replace(/'/g, '&#039;');
-    }
-
-    // ==========================================
-    // 13. STARTUP APLIKASI
-    // ==========================================
-    window.addEventListener('DOMContentLoaded', () => {
-      loadData();
-      updateAllUI();
-      updateClock();
-      setInterval(updateClock, 1000);
-      setInterval(() => {
-        renderDashboard();
-        renderPerizinan();
-      }, 30000);
-    });
-  </script>
-</body>
-</html>
+      <form onsubmit="savePondok(
